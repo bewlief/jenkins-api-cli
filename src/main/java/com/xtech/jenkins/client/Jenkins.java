@@ -1,16 +1,16 @@
 package com.xtech.jenkins.client;
 
-import com.xtech.jenkins.client.blue.BlueOcean;
-import com.xtech.jenkins.client.computer.Computers;
-import com.xtech.jenkins.client.computer.Labels;
-import com.xtech.jenkins.client.core.OverLoad;
-import com.xtech.jenkins.client.credential.Credentials;
-import com.xtech.jenkins.client.folder.Folders;
-import com.xtech.jenkins.client.job.Jobs;
-import com.xtech.jenkins.client.plugin.Plugins;
-import com.xtech.jenkins.client.queue.Queues;
-import com.xtech.jenkins.client.view.Views;
-import com.xtech.jenkins.client.workflow.Workflows;
+import com.xtech.jenkins.client.helper.BlueOcean;
+import com.xtech.jenkins.client.helper.Computers;
+import com.xtech.jenkins.client.helper.Labels;
+import com.xtech.jenkins.client.model.core.OverLoad;
+import com.xtech.jenkins.client.helper.Credentials;
+import com.xtech.jenkins.client.helper.Folders;
+import com.xtech.jenkins.client.helper.Jobs;
+import com.xtech.jenkins.client.helper.Plugins;
+import com.xtech.jenkins.client.helper.Queues;
+import com.xtech.jenkins.client.helper.Views;
+import com.xtech.jenkins.client.helper.Workflows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

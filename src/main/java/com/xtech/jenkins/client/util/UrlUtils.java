@@ -6,8 +6,8 @@
 
 package com.xtech.jenkins.client.util;
 
-import com.xtech.jenkins.client.blue.BlueOcean;
-import com.xtech.jenkins.client.folder.FolderJob;
+import com.xtech.jenkins.client.helper.BlueOcean;
+import com.xtech.jenkins.client.model.folder.FolderJob;
 
 import java.net.URI;
 

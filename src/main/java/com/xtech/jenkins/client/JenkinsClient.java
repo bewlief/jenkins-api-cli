@@ -1,5 +1,6 @@
 package com.xtech.jenkins.client;
 
+import com.xtech.jenkins.client.model.BaseModel;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.entity.ContentType;
