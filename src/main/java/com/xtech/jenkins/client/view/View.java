@@ -1,7 +1,7 @@
-package com.surenpi.jenkins.client.view;
+package com.xtech.jenkins.client.view;
 
-import com.surenpi.jenkins.client.BaseModel;
-import com.surenpi.jenkins.client.job.Job;
+import com.xtech.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.job.Job;
 
 import java.util.List;
 

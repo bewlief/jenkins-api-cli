@@ -1,11 +1,11 @@
-package com.surenpi.jenkins.client.workflow;
+package com.xtech.jenkins.client.workflow;
 
-import com.surenpi.jenkins.client.BaseManager;
-import com.surenpi.jenkins.client.JenkinsClient;
-import com.surenpi.jenkins.client.job.BuildDetail;
-import com.surenpi.jenkins.client.job.Jobs;
-import com.surenpi.jenkins.client.util.EncodingUtils;
-import org.apache.commons.collections.CollectionUtils;
+import com.xtech.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.JenkinsClient;
+import com.xtech.jenkins.client.job.BuildDetail;
+import com.xtech.jenkins.client.job.Jobs;
+import com.xtech.jenkins.client.util.EncodingUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpResponseException;
 
@@ -15,18 +15,18 @@ import java.util.Map;
 
 /**
  * Pipeline module api.
+ *
  * @author suren
  */
-public class Workflows extends BaseManager
-{
+public class Workflows extends BaseManager {
 
     /**
      * wfapi describe
+     *
      * @param jobName
      * @param buildNo
      */
-    public WfWithDetails getWfDescribe(String jobName, int buildNo) throws IOException
-    {
+    public WfWithDetails getWfDescribe(String jobName, int buildNo) throws IOException {
         String path = "/";
         try {
             JenkinsClient client = getClient();
@@ -73,12 +73,12 @@ public class Workflows extends BaseManager
 
     /**
      * Fetch last running status of Pipeline
+     *
      * @param jobName
      * @return
      * @throws IOException
      */
-    public WfWithDetails last(String jobName) throws IOException
-    {
+    public WfWithDetails last(String jobName) throws IOException {
         String url = "/job/" + EncodingUtils.encode(jobName) + "/lastBuild/wfapi/describe";
         WfWithDetails details = getClient().get(url, WfWithDetails.class);
         setBuildingInfo(details, jobName);
@@ -99,8 +99,7 @@ public class Workflows extends BaseManager
         getClient().postFormJson(url, data, this.isCrumb());
     }
 
-    private void setBuildingInfo(WfWithDetails details, String jobName) throws IOException
-    {
+    private void setBuildingInfo(WfWithDetails details, String jobName) throws IOException {
         String buildId = details.getId();
         Jobs jobs = new Jobs();
         jobs.setClient(getClient());
@@ -111,8 +110,7 @@ public class Workflows extends BaseManager
     }
 
     @Override
-    protected String[] getDependencyArray()
-    {
+    protected String[] getDependencyArray() {
         return new String[]{"pipeline-rest-api"};
     }
 }

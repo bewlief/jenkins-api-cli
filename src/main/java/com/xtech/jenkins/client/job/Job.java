@@ -4,9 +4,9 @@
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
 
-package com.surenpi.jenkins.client.job;
+package com.xtech.jenkins.client.job;
 
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 /**
  * @author suren

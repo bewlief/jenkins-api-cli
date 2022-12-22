@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client.util;
+package com.xtech.jenkins.client.util;
 
 import org.apache.http.client.methods.HttpRequestBase;
 

@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client.core;
+package com.xtech.jenkins.client.core;
 
 /**
  * @author suren

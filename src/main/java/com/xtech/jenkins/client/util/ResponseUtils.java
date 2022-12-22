@@ -3,7 +3,7 @@
  *
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
-package com.surenpi.jenkins.client.util;
+package com.xtech.jenkins.client.util;
 
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;

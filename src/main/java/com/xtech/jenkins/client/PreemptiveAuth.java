@@ -4,7 +4,7 @@
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
 
-package com.surenpi.jenkins.client;
+package com.xtech.jenkins.client;
 
 import org.apache.http.HttpException;
 import org.apache.http.HttpHost;

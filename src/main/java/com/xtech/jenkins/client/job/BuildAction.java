@@ -1,7 +1,7 @@
-package com.surenpi.jenkins.client.job;
+package com.xtech.jenkins.client.job;
 
 import com.fasterxml.jackson.annotation.*;
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 import java.util.HashMap;
 import java.util.List;

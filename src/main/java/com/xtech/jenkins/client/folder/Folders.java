@@ -1,9 +1,9 @@
-package com.surenpi.jenkins.client.folder;
+package com.xtech.jenkins.client.folder;
 
 import com.google.common.collect.ImmutableMap;
-import com.surenpi.jenkins.client.BaseManager;
-import com.surenpi.jenkins.client.util.EncodingUtils;
-import com.surenpi.jenkins.client.util.UrlUtils;
+import com.xtech.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.util.EncodingUtils;
+import com.xtech.jenkins.client.util.UrlUtils;
 
 import java.io.IOException;
 

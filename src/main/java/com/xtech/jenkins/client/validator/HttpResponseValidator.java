@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client.validator;
+package com.xtech.jenkins.client.validator;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpResponseException;

@@ -4,12 +4,12 @@
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
 
-package com.surenpi.jenkins.client.computer;
+package com.xtech.jenkins.client.computer;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
-import com.surenpi.jenkins.client.BaseModel;
-import com.surenpi.jenkins.client.JenkinsClient;
+import com.xtech.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.JenkinsClient;
 
 import java.util.List;
 

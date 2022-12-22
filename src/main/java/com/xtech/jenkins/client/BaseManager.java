@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client;
+package com.xtech.jenkins.client;
 
-import com.surenpi.jenkins.client.plugin.Plugins;
+import com.xtech.jenkins.client.plugin.Plugins;
 
 import java.io.IOException;
 

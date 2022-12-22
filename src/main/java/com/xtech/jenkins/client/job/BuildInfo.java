@@ -1,10 +1,10 @@
-package com.surenpi.jenkins.client.job;
+package com.xtech.jenkins.client.job;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 import java.util.HashMap;
 import java.util.Map;

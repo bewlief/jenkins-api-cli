@@ -1,11 +1,11 @@
-package com.surenpi.jenkins.client.job;
+package com.xtech.jenkins.client.job;
 
-import com.surenpi.jenkins.client.BaseManager;
-import com.surenpi.jenkins.client.core.JenkinsInfo;
-import com.surenpi.jenkins.client.folder.FolderJob;
-import com.surenpi.jenkins.client.folder.Folders;
-import com.surenpi.jenkins.client.util.EncodingUtils;
-import com.surenpi.jenkins.client.util.UrlUtils;
+import com.xtech.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.core.JenkinsInfo;
+import com.xtech.jenkins.client.folder.FolderJob;
+import com.xtech.jenkins.client.folder.Folders;
+import com.xtech.jenkins.client.util.EncodingUtils;
+import com.xtech.jenkins.client.util.UrlUtils;
 
 import java.io.IOException;
 import java.util.Iterator;

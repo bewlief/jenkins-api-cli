@@ -4,18 +4,17 @@
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
 
-package com.surenpi.jenkins.client;
+package com.xtech.jenkins.client;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.google.common.io.ByteStreams;
-import com.surenpi.jenkins.client.util.EncodingUtils;
-import com.surenpi.jenkins.client.util.RequestReleasingInputStream;
-import com.surenpi.jenkins.client.util.ResponseUtils;
-import com.surenpi.jenkins.client.util.UrlUtils;
-import com.surenpi.jenkins.client.validator.HttpResponseValidator;
+import com.xtech.jenkins.client.util.EncodingUtils;
+import com.xtech.jenkins.client.util.RequestReleasingInputStream;
+import com.xtech.jenkins.client.util.ResponseUtils;
+import com.xtech.jenkins.client.validator.HttpResponseValidator;
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -144,7 +143,7 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
      */
     @Override
     public <T extends BaseModel> T get(String path, Class<T> cls) throws IOException {
-        HttpGet getMethod = new HttpGet(UrlUtils.toJsonApiUri(uri, context, path));
+        HttpGet getMethod = new HttpGet(com.xtech.jenkins.client.util.UrlUtils.toJsonApiUri(uri, context, path));
 
         HttpResponse response = client.execute(getMethod, localContext);
 
@@ -175,7 +174,7 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
      */
     @Override
     public String get(String path) throws IOException {
-        HttpGet getMethod = new HttpGet(UrlUtils.toJsonApiUri(uri, context, path));
+        HttpGet getMethod = new HttpGet(com.xtech.jenkins.client.util.UrlUtils.toJsonApiUri(uri, context, path));
         HttpResponse response = client.execute(getMethod, localContext);
         jenkinsVersion = ResponseUtils.getJenkinsVersion(response);
         LOGGER.debug("get({}), version={}, responseCode={}", path, this.jenkinsVersion,
@@ -247,7 +246,7 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
      */
     @Override
     public <R extends BaseModel, D> R post(String path, D data, Class<R> cls, boolean crumbFlag) throws IOException {
-        HttpPost request = new HttpPost(UrlUtils.toJsonApiUri(uri, context, path));
+        HttpPost request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toJsonApiUri(uri, context, path));
         if (crumbFlag == true) {
             Crumb crumb = getQuietly("/crumbIssuer", Crumb.class);
             if (crumb != null) {
@@ -317,10 +316,10 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
             queryParams.add("json=" + EncodingUtils.encodeParam(JSONObject.fromObject(data).toString()));
             String value = mapper.writeValueAsString(data);
             StringEntity stringEntity = new StringEntity(value, ContentType.APPLICATION_FORM_URLENCODED);
-            request = new HttpPost(UrlUtils.toNoApiUri(uri, context, path) + StringUtils.join(queryParams, "&"));
+            request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toNoApiUri(uri, context, path) + StringUtils.join(queryParams, "&"));
             request.setEntity(stringEntity);
         } else {
-            request = new HttpPost(UrlUtils.toNoApiUri(uri, context, path));
+            request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toNoApiUri(uri, context, path));
         }
 
         if (crumbFlag == true) {
@@ -355,10 +354,10 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
         HttpPost request;
         if (data != null) {
             UrlEncodedFormEntity urlEncodedFormEntity = new UrlEncodedFormEntity(data);
-            request = new HttpPost(UrlUtils.toNoApiUri(uri, context, path));
+            request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toNoApiUri(uri, context, path));
             request.setEntity(urlEncodedFormEntity);
         } else {
-            request = new HttpPost(UrlUtils.toNoApiUri(uri, context, path));
+            request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toNoApiUri(uri, context, path));
         }
 
         if (crumbFlag == true) {
@@ -388,7 +387,7 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
 
     @Override
     public String postXml(String path, String xml_data, boolean crumbFlag) throws IOException {
-        HttpPost request = new HttpPost(UrlUtils.toJsonApiUri(uri, context, path));
+        HttpPost request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toJsonApiUri(uri, context, path));
         if (crumbFlag == true) {
             Crumb crumb = getQuietly("/crumbIssuer", Crumb.class);
             if (crumb != null) {
@@ -437,7 +436,7 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
     @Override
     public String postText(String path, String textData, ContentType contentType, boolean crumbFlag)
             throws IOException {
-        HttpPost request = new HttpPost(UrlUtils.toJsonApiUri(uri, context, path));
+        HttpPost request = new HttpPost(com.xtech.jenkins.client.util.UrlUtils.toJsonApiUri(uri, context, path));
         if (crumbFlag == true) {
             Crumb crumb = get("/crumbIssuer", Crumb.class);
             if (crumb != null) {

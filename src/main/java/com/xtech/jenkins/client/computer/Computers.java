@@ -1,8 +1,8 @@
-package com.surenpi.jenkins.client.computer;
+package com.xtech.jenkins.client.computer;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
-import com.surenpi.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.BaseManager;
 
 import java.io.IOException;
 import java.util.List;

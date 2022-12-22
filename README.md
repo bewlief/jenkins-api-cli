@@ -1,10 +1,10 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.surenpi/jenkins.client.java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.surenpi/jenkins.client.java)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.xtech/jenkins.client.java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.xtech/jenkins.client.java)
 
 # jenkins-client-java
 
 Java binding for the Jenkins client.
 
-[sonar](https://sonarcloud.io/dashboard?id=com.surenpi.ci%3Ajenkins.client.java)
+[sonar](https://sonarcloud.io/dashboard?id=com.xtech.ci%3Ajenkins.client.java)
 
 # How to use it
 
@@ -12,7 +12,7 @@ Add the following dependency to the pom.xml file of your project:
 
 ```xml
 <dependency>
-    <groupId>com.surenpi.ci</groupId>
+    <groupId>com.xtech.ci</groupId>
     <artifactId>jenkins.client.java</artifactId>
     <version>1.0.0-20171217</version>
 </dependency>
@@ -20,7 +20,7 @@ Add the following dependency to the pom.xml file of your project:
 # Example of get all jobs from jenkins
 
 ```java
-import com.surenpi.jenkins.client.Jenkins;
+import com.xtech.jenkins.client.Jenkins;
 
 import java.io.IOException;
 import java.net.URI;
@@ -51,9 +51,9 @@ public class Demo
 # Example of get all installed plugins from jenkins
 
 ```java
-import com.surenpi.jenkins.client.Jenkins;
-import com.surenpi.jenkins.client.plugin.Plugin;
-import com.surenpi.jenkins.client.plugin.Plugins;
+import com.xtech.jenkins.client.Jenkins;
+import com.xtech.jenkins.client.plugin.Plugin;
+import com.xtech.jenkins.client.plugin.Plugins;
 
 import java.io.IOException;
 import java.net.URI;
@@ -83,9 +83,9 @@ public class Demo
 # Example of get all credentials from jenkins
 
 ```java
-import com.surenpi.jenkins.client.Jenkins;
-import com.surenpi.jenkins.client.credential.Credential;
-import com.surenpi.jenkins.client.credential.Credentials;
+import com.xtech.jenkins.client.Jenkins;
+import com.xtech.jenkins.client.credential.Credential;
+import com.xtech.jenkins.client.credential.Credentials;
 
 import java.io.IOException;
 import java.net.URI;

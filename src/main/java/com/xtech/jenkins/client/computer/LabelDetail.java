@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client.computer;
+package com.xtech.jenkins.client.computer;
 
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 import java.util.List;
 

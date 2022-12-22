@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client.job;
+package com.xtech.jenkins.client.job;
 
-import com.surenpi.jenkins.client.core.Health;
+import com.xtech.jenkins.client.core.Health;
 
 import java.util.List;
 

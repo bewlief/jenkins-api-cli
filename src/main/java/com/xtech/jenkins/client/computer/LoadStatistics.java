@@ -1,7 +1,7 @@
-package com.surenpi.jenkins.client.computer;
+package com.xtech.jenkins.client.computer;
 
-import com.surenpi.jenkins.client.BaseModel;
-import com.surenpi.jenkins.client.core.HourMinSec10;
+import com.xtech.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.core.HourMinSec10;
 
 /**
  * This class will contain the information about the load statistics which can

@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client.util;
+package com.xtech.jenkins.client.util;
 
 import com.google.common.net.UrlEscapers;
 
@@ -6,8 +6,7 @@ public abstract class EncodingUtils {
 
     public static String encode(String pathPart) {
         // jenkins doesn't like the + for space, use %20 instead
-        String escape = UrlEscapers.urlPathSegmentEscaper().escape(pathPart);
-        return escape;
+        return UrlEscapers.urlPathSegmentEscaper().escape(pathPart);
     }
 
     public static String encodeParam(String pathPart) {

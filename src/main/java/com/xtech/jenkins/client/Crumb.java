@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client;
+package com.xtech.jenkins.client;
 
 /**
  * @author Adrien Lecharpentier

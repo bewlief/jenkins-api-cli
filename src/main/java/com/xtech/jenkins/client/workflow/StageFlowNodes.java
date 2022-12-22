@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.surenpi.jenkins.client.workflow;
+package com.xtech.jenkins.client.workflow;
 
 import java.util.List;
 

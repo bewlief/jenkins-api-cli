@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client.plugin;
+package com.xtech.jenkins.client.plugin;
 
-import com.surenpi.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.BaseManager;
 
 import java.io.IOException;
 import java.util.List;

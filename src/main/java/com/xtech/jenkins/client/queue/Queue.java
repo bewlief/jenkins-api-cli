@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client.queue;
+package com.xtech.jenkins.client.queue;
 
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 import java.util.List;
 

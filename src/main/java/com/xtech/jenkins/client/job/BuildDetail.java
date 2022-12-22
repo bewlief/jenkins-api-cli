@@ -1,13 +1,13 @@
-package com.surenpi.jenkins.client.job;
+package com.xtech.jenkins.client.job;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.surenpi.jenkins.client.BaseModel;
-import com.surenpi.jenkins.client.core.Artifact;
-import com.surenpi.jenkins.client.core.BuildResult;
-import com.surenpi.jenkins.client.scm.ScmChangeInfo;
+import com.xtech.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.core.Artifact;
+import com.xtech.jenkins.client.core.BuildResult;
+import com.xtech.jenkins.client.scm.ScmChangeInfo;
 
 import java.util.HashMap;
 import java.util.List;

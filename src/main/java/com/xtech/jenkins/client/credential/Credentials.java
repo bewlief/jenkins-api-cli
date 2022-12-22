@@ -1,7 +1,7 @@
-package com.surenpi.jenkins.client.credential;
+package com.xtech.jenkins.client.credential;
 
-import com.surenpi.jenkins.client.BaseManager;
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.BaseModel;
 
 import java.io.IOException;
 import java.util.*;

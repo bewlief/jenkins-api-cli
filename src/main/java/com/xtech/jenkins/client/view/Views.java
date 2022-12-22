@@ -1,9 +1,9 @@
-package com.surenpi.jenkins.client.view;
+package com.xtech.jenkins.client.view;
 
-import com.surenpi.jenkins.client.BaseManager;
-import com.surenpi.jenkins.client.folder.FolderJob;
-import com.surenpi.jenkins.client.util.EncodingUtils;
-import com.surenpi.jenkins.client.util.UrlUtils;
+import com.xtech.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.folder.FolderJob;
+import com.xtech.jenkins.client.util.EncodingUtils;
+import com.xtech.jenkins.client.util.UrlUtils;
 
 import java.io.IOException;
 

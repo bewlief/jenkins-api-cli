@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client.credential;
+package com.xtech.jenkins.client.credential;
 
 import java.util.HashMap;
 import java.util.Map;

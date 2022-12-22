@@ -1,4 +1,4 @@
-package com.surenpi.jenkins.client;
+package com.xtech.jenkins.client;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

@@ -1,10 +1,10 @@
 /**
  *
  */
-package com.surenpi.jenkins.client.workflow;
+package com.xtech.jenkins.client.workflow;
 
-import com.surenpi.jenkins.client.BaseModel;
-import com.surenpi.jenkins.client.JenkinsClient;
+import com.xtech.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.JenkinsClient;
 
 /**
  * @author johuang

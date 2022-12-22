@@ -4,7 +4,7 @@
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
 
-package com.surenpi.jenkins.client.computer;
+package com.xtech.jenkins.client.computer;
 
 import com.google.common.base.Function;
 import com.google.common.net.UrlEscapers;

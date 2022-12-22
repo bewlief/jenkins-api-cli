@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client.plugin;
+package com.xtech.jenkins.client.plugin;
 
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 /**
  * @author suren

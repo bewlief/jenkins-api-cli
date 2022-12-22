@@ -4,7 +4,7 @@
  * Distributed under the MIT license: http://opensource.org/licenses/MIT
  */
 
-package com.surenpi.jenkins.client.core;
+package com.xtech.jenkins.client.core;
 
 import java.util.List;
 

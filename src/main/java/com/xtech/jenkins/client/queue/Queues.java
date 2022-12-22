@@ -1,6 +1,6 @@
-package com.surenpi.jenkins.client.queue;
+package com.xtech.jenkins.client.queue;
 
-import com.surenpi.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.BaseManager;
 
 import java.io.IOException;
 

@@ -1,7 +1,7 @@
-package com.surenpi.jenkins.client.blue;
+package com.xtech.jenkins.client.blue;
 
-import com.surenpi.jenkins.client.BaseManager;
-import com.surenpi.jenkins.client.core.Step;
+import com.xtech.jenkins.client.BaseManager;
+import com.xtech.jenkins.client.core.Step;
 
 import java.io.IOException;
 import java.util.List;

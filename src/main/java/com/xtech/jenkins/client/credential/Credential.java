@@ -1,8 +1,8 @@
-package com.surenpi.jenkins.client.credential;
+package com.xtech.jenkins.client.credential;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.surenpi.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.BaseModel;
 
 import java.util.Map;
 

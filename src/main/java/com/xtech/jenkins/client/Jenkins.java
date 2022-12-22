@@ -1,16 +1,16 @@
-package com.surenpi.jenkins.client;
+package com.xtech.jenkins.client;
 
-import com.surenpi.jenkins.client.blue.BlueOcean;
-import com.surenpi.jenkins.client.computer.Computers;
-import com.surenpi.jenkins.client.computer.Labels;
-import com.surenpi.jenkins.client.core.OverLoad;
-import com.surenpi.jenkins.client.credential.Credentials;
-import com.surenpi.jenkins.client.folder.Folders;
-import com.surenpi.jenkins.client.job.Jobs;
-import com.surenpi.jenkins.client.plugin.Plugins;
-import com.surenpi.jenkins.client.queue.Queues;
-import com.surenpi.jenkins.client.view.Views;
-import com.surenpi.jenkins.client.workflow.Workflows;
+import com.xtech.jenkins.client.blue.BlueOcean;
+import com.xtech.jenkins.client.computer.Computers;
+import com.xtech.jenkins.client.computer.Labels;
+import com.xtech.jenkins.client.core.OverLoad;
+import com.xtech.jenkins.client.credential.Credentials;
+import com.xtech.jenkins.client.folder.Folders;
+import com.xtech.jenkins.client.job.Jobs;
+import com.xtech.jenkins.client.plugin.Plugins;
+import com.xtech.jenkins.client.queue.Queues;
+import com.xtech.jenkins.client.view.Views;
+import com.xtech.jenkins.client.workflow.Workflows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

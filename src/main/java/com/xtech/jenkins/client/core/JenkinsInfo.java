@@ -1,9 +1,9 @@
-package com.surenpi.jenkins.client.core;
+package com.xtech.jenkins.client.core;
 
-import com.surenpi.jenkins.client.BaseModel;
-import com.surenpi.jenkins.client.computer.Label;
-import com.surenpi.jenkins.client.job.Job;
-import com.surenpi.jenkins.client.view.View;
+import com.xtech.jenkins.client.BaseModel;
+import com.xtech.jenkins.client.computer.Label;
+import com.xtech.jenkins.client.job.Job;
+import com.xtech.jenkins.client.view.View;
 
 import java.util.List;
 
