@@ -7,17 +7,14 @@ import java.util.List;
 /**
  * @author suren
  */
-public class Queue extends BaseModel
-{
+public class Queue extends BaseModel {
     private List<QueueItem> items;
 
-    public List<QueueItem> getItems()
-    {
+    public List<QueueItem> getItems() {
         return items;
     }
 
-    public void setItems(List<QueueItem> items)
-    {
+    public void setItems(List<QueueItem> items) {
         this.items = items;
     }
 }

@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.xtech.com</groupId>
+    <groupId>com.xtech</groupId>
     <artifactId>jenkins.client.rest</artifactId>
     <version>${revision}</version>
     <packaging>jar</packaging>
@@ -30,7 +30,7 @@
         <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <okhttp.version>5.0.0-alpha.10</okhttp.version>
-<!--        <spring-core.version>5.3.24</spring-core.version>-->
+        <!--        <spring-core.version>5.3.24</spring-core.version>-->
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     </properties>
 
@@ -69,14 +69,14 @@
             <version>2.11.0</version>
         </dependency>
 
-<!-- 用于替代common collections4，有安全问题
-在完成test case后逐步替换！
- -->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework</groupId>-->
-<!--            <artifactId>spring-core</artifactId>-->
-<!--            <version>${spring-core.version}</version>-->
-<!--        </dependency>-->
+        <!-- 用于替代common collections4，有安全问题
+        在完成test case后逐步替换！
+         -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework</groupId>-->
+        <!--            <artifactId>spring-core</artifactId>-->
+        <!--            <version>${spring-core.version}</version>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.slf4j</groupId>

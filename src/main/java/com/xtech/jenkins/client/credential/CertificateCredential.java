@@ -10,7 +10,7 @@ public class CertificateCredential extends Credential {
 
     private static final String BASECLASS = "com.cloudbees.plugins.credentials.impl.CertificateCredentialsImpl";
 
-    private static final String FILE_ON_MASTER_KEYSTORE_SOURCE_CLASS = BASECLASS +  "$FileOnMasterKeyStoreSource";
+    private static final String FILE_ON_MASTER_KEYSTORE_SOURCE_CLASS = BASECLASS + "$FileOnMasterKeyStoreSource";
 
     private static final String UPLOAD_KEYSTORE_SOURCE_CLASS = BASECLASS + "$UploadedKeyStoreSource";
 
@@ -59,6 +59,7 @@ public class CertificateCredential extends Credential {
 
     /**
      * Set the password of the certificate
+     *
      * @param password
      */
     public void setPassword(String password) {
@@ -71,6 +72,7 @@ public class CertificateCredential extends Credential {
 
     /**
      * Set the path of the certificate. Required if CERTIFICATE_SOURCE_TYPES is FILE_ON_MASTER.
+     *
      * @param certificatePath
      */
     public void setCertificatePath(String certificatePath) {
@@ -83,6 +85,7 @@ public class CertificateCredential extends Credential {
 
     /**
      * Set the content of the certificate. Required if CERTIFICATE_SOURCE_TYPES is UPLOAD_CERT_FILE.
+     *
      * @param certificateContent
      */
     public void setCertificateContent(byte[] certificateContent) {
@@ -95,6 +98,7 @@ public class CertificateCredential extends Credential {
 
     /**
      * Set the source of the certificate
+     *
      * @param certificateSourceType
      */
     public void setCertificateSourceType(CERTIFICATE_SOURCE_TYPES certificateSourceType) {

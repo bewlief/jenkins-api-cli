@@ -20,12 +20,11 @@ public class Job extends BaseModel {
     public Job() {
     }
 
-    public Job(String name)
-    {
+    public Job(String name) {
         this();
         this.name = name;
     }
-    
+
     public Job(String name, String url) {
         this();
         this.name = name;
@@ -47,7 +46,7 @@ public class Job extends BaseModel {
     public String getUrl() {
         return url;
     }
-    
+
     public String getFullName() {
         return fullName;
     }

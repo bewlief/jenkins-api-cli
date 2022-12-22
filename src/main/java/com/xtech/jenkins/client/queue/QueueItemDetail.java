@@ -7,28 +7,23 @@ import java.util.List;
 /**
  * @author suren
  */
-public class QueueItemDetail extends QueueItem
-{
+public class QueueItemDetail extends QueueItem {
     private QueueTask task;
     private List<Action> actions;
 
-    public QueueTask getTask()
-    {
+    public QueueTask getTask() {
         return task;
     }
 
-    public void setTask(QueueTask task)
-    {
+    public void setTask(QueueTask task) {
         this.task = task;
     }
 
-    public List<Action> getActions()
-    {
+    public List<Action> getActions() {
         return actions;
     }
 
-    public void setActions(List<Action> actions)
-    {
+    public void setActions(List<Action> actions) {
         this.actions = actions;
     }
 }

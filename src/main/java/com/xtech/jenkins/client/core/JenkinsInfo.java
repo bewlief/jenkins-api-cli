@@ -7,8 +7,7 @@ import com.xtech.jenkins.client.view.View;
 
 import java.util.List;
 
-public class JenkinsInfo extends BaseModel
-{
+public class JenkinsInfo extends BaseModel {
     private List<Label> assignedLabels;
     private String mode;
     private String nodeDescription;
@@ -21,113 +20,91 @@ public class JenkinsInfo extends BaseModel
     private boolean useSecurity;
     private List<View> views;
 
-    public List<Label> getAssignedLabels()
-    {
+    public List<Label> getAssignedLabels() {
         return assignedLabels;
     }
 
-    public void setAssignedLabels(List<Label> assignedLabels)
-    {
+    public void setAssignedLabels(List<Label> assignedLabels) {
         this.assignedLabels = assignedLabels;
     }
 
-    public String getMode()
-    {
+    public String getMode() {
         return mode;
     }
 
-    public void setMode(String mode)
-    {
+    public void setMode(String mode) {
         this.mode = mode;
     }
 
-    public String getNodeDescription()
-    {
+    public String getNodeDescription() {
         return nodeDescription;
     }
 
-    public void setNodeDescription(String nodeDescription)
-    {
+    public void setNodeDescription(String nodeDescription) {
         this.nodeDescription = nodeDescription;
     }
 
-    public int getNumExecutors()
-    {
+    public int getNumExecutors() {
         return numExecutors;
     }
 
-    public void setNumExecutors(int numExecutors)
-    {
+    public void setNumExecutors(int numExecutors) {
         this.numExecutors = numExecutors;
     }
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description)
-    {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public List<Job> getJobs()
-    {
+    public List<Job> getJobs() {
         return jobs;
     }
 
-    public void setJobs(List<Job> jobs)
-    {
+    public void setJobs(List<Job> jobs) {
         this.jobs = jobs;
     }
 
-    public boolean isQuietingDown()
-    {
+    public boolean isQuietingDown() {
         return quietingDown;
     }
 
-    public void setQuietingDown(boolean quietingDown)
-    {
+    public void setQuietingDown(boolean quietingDown) {
         this.quietingDown = quietingDown;
     }
 
-    public int getSlaveAgentPort()
-    {
+    public int getSlaveAgentPort() {
         return slaveAgentPort;
     }
 
-    public void setSlaveAgentPort(int slaveAgentPort)
-    {
+    public void setSlaveAgentPort(int slaveAgentPort) {
         this.slaveAgentPort = slaveAgentPort;
     }
 
-    public boolean isUseCrumbs()
-    {
+    public boolean isUseCrumbs() {
         return useCrumbs;
     }
 
-    public void setUseCrumbs(boolean useCrumbs)
-    {
+    public void setUseCrumbs(boolean useCrumbs) {
         this.useCrumbs = useCrumbs;
     }
 
-    public boolean isUseSecurity()
-    {
+    public boolean isUseSecurity() {
         return useSecurity;
     }
 
-    public void setUseSecurity(boolean useSecurity)
-    {
+    public void setUseSecurity(boolean useSecurity) {
         this.useSecurity = useSecurity;
     }
 
-    public List<View> getViews()
-    {
+    public List<View> getViews() {
         return views;
     }
 
-    public void setViews(List<View> views)
-    {
+    public void setViews(List<View> views) {
         this.views = views;
     }
 }

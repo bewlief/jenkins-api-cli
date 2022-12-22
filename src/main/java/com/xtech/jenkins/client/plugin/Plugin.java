@@ -5,8 +5,7 @@ import com.xtech.jenkins.client.BaseModel;
 /**
  * @author suren
  */
-public class Plugin extends BaseModel
-{
+public class Plugin extends BaseModel {
     private boolean active;
     private String backupVersion;
     private boolean bundled;
@@ -20,123 +19,99 @@ public class Plugin extends BaseModel
     private String url;
     private String version;
 
-    public boolean isActive()
-    {
+    public boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active)
-    {
+    public void setActive(boolean active) {
         this.active = active;
     }
 
-    public String getBackupVersion()
-    {
+    public String getBackupVersion() {
         return backupVersion;
     }
 
-    public void setBackupVersion(String backupVersion)
-    {
+    public void setBackupVersion(String backupVersion) {
         this.backupVersion = backupVersion;
     }
 
-    public boolean isBundled()
-    {
+    public boolean isBundled() {
         return bundled;
     }
 
-    public void setBundled(boolean bundled)
-    {
+    public void setBundled(boolean bundled) {
         this.bundled = bundled;
     }
 
-    public boolean isDowngradable()
-    {
+    public boolean isDowngradable() {
         return downgradable;
     }
 
-    public void setDowngradable(boolean downgradable)
-    {
+    public void setDowngradable(boolean downgradable) {
         this.downgradable = downgradable;
     }
 
-    public boolean isEnabled()
-    {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled)
-    {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
-    public boolean isHasUpdate()
-    {
+    public boolean isHasUpdate() {
         return hasUpdate;
     }
 
-    public void setHasUpdate(boolean hasUpdate)
-    {
+    public void setHasUpdate(boolean hasUpdate) {
         this.hasUpdate = hasUpdate;
     }
 
-    public String getLongName()
-    {
+    public String getLongName() {
         return longName;
     }
 
-    public void setLongName(String longName)
-    {
+    public void setLongName(String longName) {
         this.longName = longName;
     }
 
-    public boolean isPinned()
-    {
+    public boolean isPinned() {
         return pinned;
     }
 
-    public void setPinned(boolean pinned)
-    {
+    public void setPinned(boolean pinned) {
         this.pinned = pinned;
     }
 
-    public String getShortName()
-    {
+    public String getShortName() {
         return shortName;
     }
 
-    public void setShortName(String shortName)
-    {
+    public void setShortName(String shortName) {
         this.shortName = shortName;
     }
 
-    public String getSupportsDynamicLoad()
-    {
+    public String getSupportsDynamicLoad() {
         return supportsDynamicLoad;
     }
 
-    public void setSupportsDynamicLoad(String supportsDynamicLoad)
-    {
+    public void setSupportsDynamicLoad(String supportsDynamicLoad) {
         this.supportsDynamicLoad = supportsDynamicLoad;
     }
 
-    public String getUrl()
-    {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url)
-    {
+    public void setUrl(String url) {
         this.url = url;
     }
 
-    public String getVersion()
-    {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(String version)
-    {
+    public void setVersion(String version) {
         this.version = version;
     }
 }

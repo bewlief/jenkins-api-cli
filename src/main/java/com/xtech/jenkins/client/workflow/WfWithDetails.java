@@ -15,8 +15,7 @@ import java.util.List;
 /**
  * @author
  */
-public class WfWithDetails extends BaseModel
-{
+public class WfWithDetails extends BaseModel {
     String id;
     String name;
     String status;
@@ -32,12 +31,15 @@ public class WfWithDetails extends BaseModel
     public String getId() {
         return id;
     }
+
     public void setId(String id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -50,58 +52,70 @@ public class WfWithDetails extends BaseModel
      * PAUSED_PENDING_INPUT,
      * FAILED,
      * UNSTABLE
+     *
      * @return
      */
     public String getStatus() {
         return status;
     }
+
     public void setStatus(String status) {
         this.status = status;
     }
+
     public Timestamp getStartTimeMillis() {
         return startTimeMillis;
     }
+
     public void setStartTimeMillis(Timestamp startTimeMillis) {
         this.startTimeMillis = startTimeMillis;
     }
+
     public Timestamp getEndTimeMillis() {
         return endTimeMillis;
     }
+
     public void setEndTimeMillis(Timestamp endTimeMillis) {
         this.endTimeMillis = endTimeMillis;
     }
+
     public long getDurationMillis() {
         return durationMillis;
     }
+
     public void setDurationMillis(long durationMillis) {
         this.durationMillis = durationMillis;
     }
+
     public long getQueueDurationMillis() {
         return queueDurationMillis;
     }
+
     public void setQueueDurationMillis(long queueDurationMillis) {
         this.queueDurationMillis = queueDurationMillis;
     }
+
     public long getPauseDurationMillis() {
         return pauseDurationMillis;
     }
+
     public void setPauseDurationMillis(long pauseDurationMillis) {
         this.pauseDurationMillis = pauseDurationMillis;
     }
+
     public List<Stage> getStages() {
         return stages;
     }
+
     public void setStages(List<Stage> stages) {
         this.stages = stages;
     }
 
-    public boolean isBuilding()
-    {
+    public boolean isBuilding() {
         return building;
     }
 
-    public void setBuilding(boolean building)
-    {
+    public void setBuilding(boolean building) {
         this.building = building;
     }
 
@@ -168,6 +182,7 @@ public class WfWithDetails extends BaseModel
             return false;
         return true;
     }
+
     @Override
     public String toString() {
         return "WfWithDetails [id=" + id + ", name=" + name + ", status=" + status + ", startTimeMillis="
@@ -176,13 +191,11 @@ public class WfWithDetails extends BaseModel
                 + ", stages=" + stages + "]";
     }
 
-    public void setClient(JenkinsClient client)
-    {
+    public void setClient(JenkinsClient client) {
         this.client = client;
     }
 
-    public JenkinsClient getClient()
-    {
+    public JenkinsClient getClient() {
         return client;
     }
 }

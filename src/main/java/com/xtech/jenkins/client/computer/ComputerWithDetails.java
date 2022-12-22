@@ -13,16 +13,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.concurrent.Executor;
 
 /**
  * 执行节点详细信息
+ *
  * @author suren
  */
 public class ComputerWithDetails extends Computer {
 
     private String displayName;
-//    private List actions; //TODO: What kind of List?
+    //    private List actions; //TODO: What kind of List?
 //    private List<Executor> executors;
     private Boolean idle;
     private Boolean jnlp;
@@ -38,9 +38,9 @@ public class ComputerWithDetails extends Computer {
     private List<Label> assignedLabels;
     private String absoluteRemotePath;
 
-    public ComputerWithDetails()
-    {
+    public ComputerWithDetails() {
     }
+
     public String getDisplayName() {
         return displayName;
     }
@@ -68,7 +68,7 @@ public class ComputerWithDetails extends Computer {
     /**
      * This will explicitly get the whole statistics for the given computer
      * (node) name.
-     * 
+     *
      * @return {@link LoadStatistics}
      * @throws IOException in case of an error.
      */
@@ -94,31 +94,31 @@ public class ComputerWithDetails extends Computer {
         } else {
             name = UrlEscapers.urlPathSegmentEscaper().escape(displayName);
         }
-        
+
         Map<String, String> data = new HashMap<String, String>();
-        data.put( "json", "init" );
-        getClient().post( "/computer/" + name + "/toggleOffline", crumbFlag);
+        data.put("json", "init");
+        getClient().post("/computer/" + name + "/toggleOffline", crumbFlag);
     }
 
     public void toggleOffline() throws IOException {
-        toggleOffline( false );
+        toggleOffline(false);
     }
 
     public void changeOfflineCause(String cause, boolean crumbFlag) throws IOException {
-      String name;
-      if ("master".equals(displayName)) {
-        name = "(master)";
-      } else {
-        name = UrlEscapers.urlPathSegmentEscaper().escape(displayName);
-      }
+        String name;
+        if ("master".equals(displayName)) {
+            name = "(master)";
+        } else {
+            name = UrlEscapers.urlPathSegmentEscaper().escape(displayName);
+        }
 
-      Map<String, String> data = new HashMap<String, String>();
-      data.put( "offlineMessage", cause );
-      getClient().postForm("/computer/" + name + "/changeOfflineCause?", data, crumbFlag);
+        Map<String, String> data = new HashMap<String, String>();
+        data.put("offlineMessage", cause);
+        getClient().postForm("/computer/" + name + "/changeOfflineCause?", data, crumbFlag);
     }
 
     public void changeOfflineCause(String cause) throws IOException {
-      changeOfflineCause(cause, false);
+        changeOfflineCause(cause, false);
     }
 
     public Boolean getManualLaunchAllowed() {
@@ -153,23 +153,19 @@ public class ComputerWithDetails extends Computer {
         return temporarilyOffline;
     }
 
-    public List<Label> getAssignedLabels()
-    {
+    public List<Label> getAssignedLabels() {
         return assignedLabels;
     }
 
-    public void setAssignedLabels(List<Label> assignedLabels)
-    {
+    public void setAssignedLabels(List<Label> assignedLabels) {
         this.assignedLabels = assignedLabels;
     }
 
-    public String getAbsoluteRemotePath()
-    {
+    public String getAbsoluteRemotePath() {
         return absoluteRemotePath;
     }
 
-    public void setAbsoluteRemotePath(String absoluteRemotePath)
-    {
+    public void setAbsoluteRemotePath(String absoluteRemotePath) {
         this.absoluteRemotePath = absoluteRemotePath;
     }
 

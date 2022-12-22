@@ -10,15 +10,15 @@ import java.util.Map;
 
 /**
  * 计算节点管理
+ *
  * @author suren
  */
-public class Computers extends BaseManager
-{
+public class Computers extends BaseManager {
     /**
      * Get a list of all the computers on the server (at the summary level)
      *
      * @return map of defined computers (summary level, for details @see
-     *         Computer#details
+     * Computer#details
      * @throws IOException in case of an error.
      */
     public Map<String, Computer> getComputers() throws IOException {
@@ -47,8 +47,7 @@ public class Computers extends BaseManager
     }
 
     @Override
-    protected String[] getDependencyArray()
-    {
+    protected String[] getDependencyArray() {
         return null;
     }
 }

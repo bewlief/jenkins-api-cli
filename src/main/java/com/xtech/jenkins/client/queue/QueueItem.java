@@ -5,8 +5,7 @@ import com.xtech.jenkins.client.BaseModel;
 /**
  * @author suren
  */
-public class QueueItem extends BaseModel
-{
+public class QueueItem extends BaseModel {
     private int id;
     private boolean blocked;
     private boolean buildable;
@@ -18,103 +17,83 @@ public class QueueItem extends BaseModel
     private long buildableStartMilliseconds;
     private boolean pending;
 
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
 
-    public void setId(int id)
-    {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public boolean isBlocked()
-    {
+    public boolean isBlocked() {
         return blocked;
     }
 
-    public void setBlocked(boolean blocked)
-    {
+    public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
 
-    public boolean isBuildable()
-    {
+    public boolean isBuildable() {
         return buildable;
     }
 
-    public void setBuildable(boolean buildable)
-    {
+    public void setBuildable(boolean buildable) {
         this.buildable = buildable;
     }
 
-    public long getInQueueSince()
-    {
+    public long getInQueueSince() {
         return inQueueSince;
     }
 
-    public void setInQueueSince(long inQueueSince)
-    {
+    public void setInQueueSince(long inQueueSince) {
         this.inQueueSince = inQueueSince;
     }
 
-    public String getParams()
-    {
+    public String getParams() {
         return params;
     }
 
-    public void setParams(String params)
-    {
+    public void setParams(String params) {
         this.params = params;
     }
 
-    public boolean isStuck()
-    {
+    public boolean isStuck() {
         return stuck;
     }
 
-    public void setStuck(boolean stuck)
-    {
+    public void setStuck(boolean stuck) {
         this.stuck = stuck;
     }
 
-    public String getUrl()
-    {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(String url)
-    {
+    public void setUrl(String url) {
         this.url = url;
     }
 
-    public String getWhy()
-    {
+    public String getWhy() {
         return why;
     }
 
-    public void setWhy(String why)
-    {
+    public void setWhy(String why) {
         this.why = why;
     }
 
-    public long getBuildableStartMilliseconds()
-    {
+    public long getBuildableStartMilliseconds() {
         return buildableStartMilliseconds;
     }
 
-    public void setBuildableStartMilliseconds(long buildableStartMilliseconds)
-    {
+    public void setBuildableStartMilliseconds(long buildableStartMilliseconds) {
         this.buildableStartMilliseconds = buildableStartMilliseconds;
     }
 
-    public boolean isPending()
-    {
+    public boolean isPending() {
         return pending;
     }
 
-    public void setPending(boolean pending)
-    {
+    public void setPending(boolean pending) {
         this.pending = pending;
     }
 }

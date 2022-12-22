@@ -10,11 +10,10 @@ import java.util.List;
 
 /**
  * @author Karl Heinz Marbaise
- *
+ * <p>
  *         TODO: Has someone a better name for the class?
  */
-public class Statis
-{
+public class Statis {
 
     private List<Double> history;
     private Double latest;

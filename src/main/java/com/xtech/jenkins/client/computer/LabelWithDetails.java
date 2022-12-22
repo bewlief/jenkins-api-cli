@@ -10,8 +10,7 @@ import com.xtech.jenkins.client.job.Job;
 
 import java.util.List;
 
-public class LabelWithDetails extends Job
-{
+public class LabelWithDetails extends Job {
 
     String name;
 

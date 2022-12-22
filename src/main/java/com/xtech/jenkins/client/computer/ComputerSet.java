@@ -13,19 +13,17 @@ import com.xtech.jenkins.client.JenkinsClient;
 
 import java.util.List;
 
-public class ComputerSet extends BaseModel
-{
+public class ComputerSet extends BaseModel {
     private int busyExecutors;
     List<ComputerWithDetails> computer;
     private String displayName;
     private int totalExecutors;
     private JenkinsClient client;
 
-    public ComputerSet()
-    {
+    public ComputerSet() {
     }
 
-    
+
     public int getBusyExecutors() {
         return busyExecutors;
     }
@@ -51,7 +49,7 @@ public class ComputerSet extends BaseModel
     }
 
     public List<ComputerWithDetails> getComputers() {
-        return Lists.transform( computer, new Function<ComputerWithDetails, ComputerWithDetails>() {
+        return Lists.transform(computer, new Function<ComputerWithDetails, ComputerWithDetails>() {
             @Override
             public ComputerWithDetails apply(ComputerWithDetails computerWithDetails) {
                 computerWithDetails.setClient(client);
@@ -64,8 +62,7 @@ public class ComputerSet extends BaseModel
         this.client = client;
     }
 
-    public JenkinsClient getClient()
-    {
+    public JenkinsClient getClient() {
         return client;
     }
 

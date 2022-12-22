@@ -15,10 +15,8 @@ import java.util.List;
 
 /**
  * @author Kelly Plummer
- *
  */
-public class Computer extends BaseModel
-{
+public class Computer extends BaseModel {
 
     private String displayName;
     private JenkinsClient client;
@@ -37,8 +35,7 @@ public class Computer extends BaseModel
         this.client = client;
     }
 
-    public JenkinsClient getClient()
-    {
+    public JenkinsClient getClient() {
         return client;
     }
 

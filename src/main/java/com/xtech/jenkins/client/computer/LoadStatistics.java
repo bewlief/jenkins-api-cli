@@ -6,14 +6,12 @@ import com.xtech.jenkins.client.core.HourMinSec10;
 /**
  * This class will contain the information about the load statistics which can
  * be extracted by using the following url:
- * 
+ * <p>
  * http://server/computer/nodename/loadStatistics/api/json?pretty&amp;depth=3
- * 
- * @author Karl Heinz Marbaise
  *
+ * @author Karl Heinz Marbaise
  */
-public class LoadStatistics extends BaseModel
-{
+public class LoadStatistics extends BaseModel {
     private HourMinSec10 busyExecutors;
     private HourMinSec10 queueLength;
     private HourMinSec10 totalExecutors;

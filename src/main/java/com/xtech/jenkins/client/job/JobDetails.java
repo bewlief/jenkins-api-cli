@@ -30,214 +30,172 @@ public class JobDetails extends Job {
     private int nextBuildNumber;
     private boolean concurrentBuild;
 
-    public String getDescription()
-    {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description)
-    {
+    public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getDisplayName()
-    {
+    public String getDisplayName() {
         return displayName;
     }
 
-    public void setDisplayName(String displayName)
-    {
+    public void setDisplayName(String displayName) {
         this.displayName = displayName;
     }
 
-    public String getDisplayNameOrNull()
-    {
+    public String getDisplayNameOrNull() {
         return displayNameOrNull;
     }
 
-    public void setDisplayNameOrNull(String displayNameOrNull)
-    {
+    public void setDisplayNameOrNull(String displayNameOrNull) {
         this.displayNameOrNull = displayNameOrNull;
     }
 
-    public String getFullDisplayName()
-    {
+    public String getFullDisplayName() {
         return fullDisplayName;
     }
 
-    public void setFullDisplayName(String fullDisplayName)
-    {
+    public void setFullDisplayName(String fullDisplayName) {
         this.fullDisplayName = fullDisplayName;
     }
 
     @Override
-    public String getFullName()
-    {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName)
-    {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 
-    public boolean isBuildable()
-    {
+    public boolean isBuildable() {
         return buildable;
     }
 
-    public void setBuildable(boolean buildable)
-    {
+    public void setBuildable(boolean buildable) {
         this.buildable = buildable;
     }
 
-    public List<BuildInfo> getBuilds()
-    {
+    public List<BuildInfo> getBuilds() {
         return builds;
     }
 
-    public void setBuilds(List<BuildInfo> builds)
-    {
+    public void setBuilds(List<BuildInfo> builds) {
         this.builds = builds;
     }
 
-    public String getColor()
-    {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(String color)
-    {
+    public void setColor(String color) {
         this.color = color;
     }
 
-    public BuildInfo getFirstBuild()
-    {
+    public BuildInfo getFirstBuild() {
         return firstBuild;
     }
 
-    public void setFirstBuild(BuildInfo firstBuild)
-    {
+    public void setFirstBuild(BuildInfo firstBuild) {
         this.firstBuild = firstBuild;
     }
 
-    public List<Health> getHealthReport()
-    {
+    public List<Health> getHealthReport() {
         return healthReport;
     }
 
-    public void setHealthReport(List<Health> healthReport)
-    {
+    public void setHealthReport(List<Health> healthReport) {
         this.healthReport = healthReport;
     }
 
-    public boolean isInQueue()
-    {
+    public boolean isInQueue() {
         return inQueue;
     }
 
-    public void setInQueue(boolean inQueue)
-    {
+    public void setInQueue(boolean inQueue) {
         this.inQueue = inQueue;
     }
 
-    public boolean isKeepDependencies()
-    {
+    public boolean isKeepDependencies() {
         return keepDependencies;
     }
 
-    public void setKeepDependencies(boolean keepDependencies)
-    {
+    public void setKeepDependencies(boolean keepDependencies) {
         this.keepDependencies = keepDependencies;
     }
 
-    public BuildInfo getLastBuild()
-    {
+    public BuildInfo getLastBuild() {
         return lastBuild;
     }
 
-    public void setLastBuild(BuildInfo lastBuild)
-    {
+    public void setLastBuild(BuildInfo lastBuild) {
         this.lastBuild = lastBuild;
     }
 
-    public BuildInfo getLastCompletedBuild()
-    {
+    public BuildInfo getLastCompletedBuild() {
         return lastCompletedBuild;
     }
 
-    public void setLastCompletedBuild(BuildInfo lastCompletedBuild)
-    {
+    public void setLastCompletedBuild(BuildInfo lastCompletedBuild) {
         this.lastCompletedBuild = lastCompletedBuild;
     }
 
-    public BuildInfo getLastFailedBuild()
-    {
+    public BuildInfo getLastFailedBuild() {
         return lastFailedBuild;
     }
 
-    public void setLastFailedBuild(BuildInfo lastFailedBuild)
-    {
+    public void setLastFailedBuild(BuildInfo lastFailedBuild) {
         this.lastFailedBuild = lastFailedBuild;
     }
 
-    public BuildInfo getLastStableBuild()
-    {
+    public BuildInfo getLastStableBuild() {
         return lastStableBuild;
     }
 
-    public void setLastStableBuild(BuildInfo lastStableBuild)
-    {
+    public void setLastStableBuild(BuildInfo lastStableBuild) {
         this.lastStableBuild = lastStableBuild;
     }
 
-    public BuildInfo getLastSuccessfulBuild()
-    {
+    public BuildInfo getLastSuccessfulBuild() {
         return lastSuccessfulBuild;
     }
 
-    public void setLastSuccessfulBuild(BuildInfo lastSuccessfulBuild)
-    {
+    public void setLastSuccessfulBuild(BuildInfo lastSuccessfulBuild) {
         this.lastSuccessfulBuild = lastSuccessfulBuild;
     }
 
-    public BuildInfo getLastUnstableBuild()
-    {
+    public BuildInfo getLastUnstableBuild() {
         return lastUnstableBuild;
     }
 
-    public void setLastUnstableBuild(BuildInfo lastUnstableBuild)
-    {
+    public void setLastUnstableBuild(BuildInfo lastUnstableBuild) {
         this.lastUnstableBuild = lastUnstableBuild;
     }
 
-    public BuildInfo getLastUnsuccessfulBuild()
-    {
+    public BuildInfo getLastUnsuccessfulBuild() {
         return lastUnsuccessfulBuild;
     }
 
-    public void setLastUnsuccessfulBuild(BuildInfo lastUnsuccessfulBuild)
-    {
+    public void setLastUnsuccessfulBuild(BuildInfo lastUnsuccessfulBuild) {
         this.lastUnsuccessfulBuild = lastUnsuccessfulBuild;
     }
 
-    public int getNextBuildNumber()
-    {
+    public int getNextBuildNumber() {
         return nextBuildNumber;
     }
 
-    public void setNextBuildNumber(int nextBuildNumber)
-    {
+    public void setNextBuildNumber(int nextBuildNumber) {
         this.nextBuildNumber = nextBuildNumber;
     }
 
-    public boolean isConcurrentBuild()
-    {
+    public boolean isConcurrentBuild() {
         return concurrentBuild;
     }
 
-    public void setConcurrentBuild(boolean concurrentBuild)
-    {
+    public void setConcurrentBuild(boolean concurrentBuild) {
         this.concurrentBuild = concurrentBuild;
     }
 }

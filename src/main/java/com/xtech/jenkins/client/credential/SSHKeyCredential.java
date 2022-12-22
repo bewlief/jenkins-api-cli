@@ -10,8 +10,8 @@ public class SSHKeyCredential extends Credential {
     private static final String BASECLASS = "com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey";
 
     private static final String DIRECT_ENTRY_CLASS = BASECLASS + "$DirectEntryPrivateKeySource";
-    private static final String FILE_ON_MASTER_CLASS = BASECLASS +  "$FileOnMasterPrivateKeySource";
-    private static final String USERS_PRIVATE_KEY_CLASS = BASECLASS +  "$UsersPrivateKeySource";
+    private static final String FILE_ON_MASTER_CLASS = BASECLASS + "$FileOnMasterPrivateKeySource";
+    private static final String USERS_PRIVATE_KEY_CLASS = BASECLASS + "$UsersPrivateKeySource";
 
 
     private String username;
@@ -29,16 +29,16 @@ public class SSHKeyCredential extends Credential {
         /**
          * Plain text
          */
-        DIRECT_ENTRY (DIRECT_ENTRY_CLASS, 0),
+        DIRECT_ENTRY(DIRECT_ENTRY_CLASS, 0),
         /**
          * A file path on the master node
          */
-        FILE_ON_MASTER (FILE_ON_MASTER_CLASS, 1),
+        FILE_ON_MASTER(FILE_ON_MASTER_CLASS, 1),
 
         /**
          * From the Jenkins master ~/.ssh
          */
-        USERS_PRIVATE_KEY (USERS_PRIVATE_KEY_CLASS, 2);
+        USERS_PRIVATE_KEY(USERS_PRIVATE_KEY_CLASS, 2);
 
         private String privateKeyTypeClass;
         private int typeValue;
@@ -66,6 +66,7 @@ public class SSHKeyCredential extends Credential {
 
     /**
      * Set the username of the ssh key
+     *
      * @param username
      */
     public void setUsername(String username) {
@@ -78,6 +79,7 @@ public class SSHKeyCredential extends Credential {
 
     /**
      * Set the passphrash of the ssh key
+     *
      * @param passphrase
      */
     public void setPassphrase(String passphrase) {
@@ -91,6 +93,7 @@ public class SSHKeyCredential extends Credential {
     /**
      * Set the value of the private key.
      * Depending on the type of the private key, it should be either the content of the key, or the path of the private key file.
+     *
      * @param privateKeyValue
      */
     public void setPrivateKeyValue(String privateKeyValue) {
@@ -103,6 +106,7 @@ public class SSHKeyCredential extends Credential {
 
     /**
      * The source of the private key.
+     *
      * @param privateKeyType
      */
     public void setPrivateKeyType(PRIVATE_KEY_TYPES privateKeyType) {

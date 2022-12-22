@@ -7,10 +7,11 @@ import java.io.IOException;
 /**
  * @author suren
  */
-public abstract class BaseManager
-{
+public abstract class BaseManager {
     private JenkinsClient client;
-    /** 如果打开了CSRF保护应该设置为true */
+    /**
+     * 如果打开了CSRF保护应该设置为true
+     */
     private boolean crumb = true;
 
     protected JenkinsClient getClient() {
@@ -21,13 +22,11 @@ public abstract class BaseManager
         this.client = client;
     }
 
-    public boolean isCrumb()
-    {
+    public boolean isCrumb() {
         return crumb;
     }
 
-    public void setCrumb(boolean crumb)
-    {
+    public void setCrumb(boolean crumb) {
         this.crumb = crumb;
     }
 
@@ -35,10 +34,10 @@ public abstract class BaseManager
 
     /**
      * 插件依赖是否满足的检查
+     *
      * @return 依赖满足返回true
      */
-    public boolean dependencyCheck() throws IOException
-    {
+    public boolean dependencyCheck() throws IOException {
         Plugins plugins = new Plugins();
         plugins.setClient(getClient());
 

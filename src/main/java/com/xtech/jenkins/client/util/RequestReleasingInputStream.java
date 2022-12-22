@@ -17,12 +17,10 @@ public class RequestReleasingInputStream extends FilterInputStream {
      * <code>in</code> to the field <code>this.in</code> so as to remember it
      * for later use.
      *
-     * @param in
-     *            the underlying input stream, or <code>null</code> if this
-     *            instance is to be created without an underlying stream.
-     * @param httpRequestBase
-     *            The request object that should be released if the stream
-     *            closed
+     * @param in              the underlying input stream, or <code>null</code> if this
+     *                        instance is to be created without an underlying stream.
+     * @param httpRequestBase The request object that should be released if the stream
+     *                        closed
      */
     public RequestReleasingInputStream(InputStream in, HttpRequestBase httpRequestBase) {
         super(in);
@@ -33,8 +31,7 @@ public class RequestReleasingInputStream extends FilterInputStream {
      * Closes this input stream and releases any system resources associated
      * with the stream. This method simply performs <code>in.close()</code>.
      *
-     * @throws IOException
-     *             if an I/O error occurs.
+     * @throws IOException if an I/O error occurs.
      * @see FilterInputStream#in
      */
     @Override

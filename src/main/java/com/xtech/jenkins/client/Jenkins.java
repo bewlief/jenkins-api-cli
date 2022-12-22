@@ -19,6 +19,7 @@ import java.net.URI;
 
 /**
  * Jenkins Client main entry
+ *
  * @author suren
  */
 public class Jenkins {
@@ -30,8 +31,7 @@ public class Jenkins {
         this(new JenkinsHttpClient(uri));
     }
 
-    public Jenkins(URI uri, String userName, String password)
-    {
+    public Jenkins(URI uri, String userName, String password) {
         this(new JenkinsHttpClient(uri, userName, password));
     }
 
@@ -39,8 +39,7 @@ public class Jenkins {
         this.client = client;
     }
 
-    public Folders getFolders()
-    {
+    public Folders getFolders() {
         Folders folders = new Folders();
         folders.setClient(this.client);
         return folders;
@@ -70,15 +69,13 @@ public class Jenkins {
         return computers;
     }
 
-    public Labels getLabels()
-    {
+    public Labels getLabels() {
         Labels labels = new Labels();
         labels.setClient(this.client);
         return labels;
     }
 
-    public Queues getQueues()
-    {
+    public Queues getQueues() {
         Queues queues = new Queues();
         queues.setClient(this.client);
         return queues;
@@ -93,12 +90,13 @@ public class Jenkins {
 
     /**
      * Get the credential manager of jenkins
+     *
      * @return
      */
     public Credentials getCredentials() {
         String version = getVersion();
         Credentials credentials;
-        if("2.7.3".equals(version)) {
+        if ("2.7.3".equals(version)) {
             credentials = new Credentials(Credentials.V1URL);
         } else {
             credentials = new Credentials();

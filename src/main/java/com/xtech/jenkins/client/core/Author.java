@@ -5,28 +5,23 @@ import com.xtech.jenkins.client.BaseModel;
 /**
  * @author suren
  */
-public class Author extends BaseModel
-{
+public class Author extends BaseModel {
     private String absoluteUrl;
     private String fullName;
 
-    public String getAbsoluteUrl()
-    {
+    public String getAbsoluteUrl() {
         return absoluteUrl;
     }
 
-    public void setAbsoluteUrl(String absoluteUrl)
-    {
+    public void setAbsoluteUrl(String absoluteUrl) {
         this.absoluteUrl = absoluteUrl;
     }
 
-    public String getFullName()
-    {
+    public String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName)
-    {
+    public void setFullName(String fullName) {
         this.fullName = fullName;
     }
 }

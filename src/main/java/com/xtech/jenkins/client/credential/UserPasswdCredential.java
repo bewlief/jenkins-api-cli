@@ -26,13 +26,14 @@ public class UserPasswdCredential extends Credential {
             return this.username;
         }
         if (this.getDisplayName() != null) {
-            return this.getDisplayName().split("/") [0];
+            return this.getDisplayName().split("/")[0];
         }
         return null;
     }
 
     /**
      * Set the username of the credential
+     *
      * @param username
      */
     public void setUsername(String username) {
@@ -45,6 +46,7 @@ public class UserPasswdCredential extends Credential {
 
     /**
      * Set the password of the credential
+     *
      * @param password
      */
     public void setPassword(String password) {
@@ -75,6 +77,6 @@ public class UserPasswdCredential extends Credential {
         data.put("password", this.getPassword());
         data.put("description", this.getDescription());
         data.put("stapler-class", CLASSNAME);
-        return  data;
+        return data;
     }
 }

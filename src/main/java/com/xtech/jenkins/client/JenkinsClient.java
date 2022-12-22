@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * 操作Jenkins的基本方法接口
+ *
  * @author suren
  */
 public interface JenkinsClient {

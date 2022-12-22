@@ -9,11 +9,10 @@ import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 
 /**
- *
  * @author Dell Green
  */
 public final class ResponseUtils {
-    
+
     /**
      * Utility Class.
      */
@@ -23,11 +22,12 @@ public final class ResponseUtils {
 
     /**
      * Get Jenkins version from supplied response if any.
+     *
      * @param response the response
      * @return the version or empty string
      */
     public static String getJenkinsVersion(final HttpResponse response) {
-        final Header[] hdrs = response.getHeaders("X-Jenkins");
+        final Header[] hdrs = response.getHeaders(Constants.X_JENKINS);
         return hdrs.length == 0 ? "" : hdrs[0].getValue();
     }
 }

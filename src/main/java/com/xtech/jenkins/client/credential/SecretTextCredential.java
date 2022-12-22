@@ -44,6 +44,6 @@ public class SecretTextCredential extends Credential {
         data.put("secret", this.getSecret());
         data.put("description", this.getDescription());
         data.put("stapler-class", CLASSNAME);
-        return  data;
+        return data;
     }
 }

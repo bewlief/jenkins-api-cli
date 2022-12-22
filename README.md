@@ -11,12 +11,14 @@ Java binding for the Jenkins client.
 Add the following dependency to the pom.xml file of your project:
 
 ```xml
+
 <dependency>
-    <groupId>com.xtech.ci</groupId>
+    <groupId>com.xtech</groupId>
     <artifactId>jenkins.client.java</artifactId>
     <version>1.0.0-20171217</version>
 </dependency>
 ```
+
 # Example of get all jobs from jenkins
 
 ```java
@@ -30,18 +32,15 @@ import java.util.List;
 /**
  * @author suren
  */
-public class Demo
-{
-    public static void main(String[] args) throws URISyntaxException, IOException
-    {
+public class Demo {
+    public static void main(String[] args) throws URISyntaxException, IOException {
         URI serverURI = new URI("http://localhost:8080/jenkins");
         Jenkins jenkins = new Jenkins(serverURI, "admin", "admin");
 
         Jobs jobMgr = jenkins.getJobs();
         List<Job> allJobs = jobMgr.getAllJobs();
 
-        for(Job job : allJobs)
-        {
+        for (Job job : allJobs) {
             System.out.println(job.getName());
         }
     }
@@ -63,17 +62,14 @@ import java.util.List;
 /**
  * @author suren
  */
-public class Demo
-{
-    public static void main(String[] args) throws URISyntaxException, IOException
-    {
+public class Demo {
+    public static void main(String[] args) throws URISyntaxException, IOException {
         URI serverURI = new URI("http://localhost:8080/jenkins");
         Jenkins jenkins = new Jenkins(serverURI, "admin", "admin");
 
         Plugins pluginMgr = jenkins.getPlugins();
         List<Plugin> allInstalledPlugins = pluginMgr.getPluginManager().getPlugins();
-        for(Plugin plugin : allInstalledPlugins)
-        {
+        for (Plugin plugin : allInstalledPlugins) {
             System.out.println(plugin.getShortName());
         }
     }
@@ -95,17 +91,14 @@ import java.util.Map;
 /**
  * @author suren
  */
-public class Demo
-{
-    public static void main(String[] args) throws URISyntaxException, IOException
-    {
+public class Demo {
+    public static void main(String[] args) throws URISyntaxException, IOException {
         URI serverURI = new URI("http://localhost:8080/jenkins");
         Jenkins jenkins = new Jenkins(serverURI, "admin", "admin");
 
         Credentials credentialMgr = jenkins.getCredentials();
         Map<String, Credential> credentialMap = credentialMgr.list();
-        for(String key : credentialMap.keySet())
-        {
+        for (String key : credentialMap.keySet()) {
             System.out.println(credentialMap.get(key).getDescription());
         }
     }

@@ -5,8 +5,7 @@ import com.xtech.jenkins.client.BaseModel;
 /**
  * @author Karl Heinz Marbaise
  */
-public class OfflineCause extends BaseModel
-{
+public class OfflineCause extends BaseModel {
 
     private Long timestamp;
 

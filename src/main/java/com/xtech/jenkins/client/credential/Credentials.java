@@ -8,21 +8,22 @@ import java.util.*;
 
 /**
  * Jenkins Credentials Managers
+ *
  * @author suren
  */
-public class Credentials extends BaseManager
-{
+public class Credentials extends BaseManager {
     public static final String V1URL = "/credential-store/domain/_";
     public static final String V2URL = "/credentials/store/system/domain/_";
 
     private String baseUrl = V2URL;
     private boolean isVersion1 = false;
 
-    public Credentials(){}
+    public Credentials() {
+    }
 
     public Credentials(String baseUrl) {
         this.baseUrl = baseUrl;
-        if(V1URL.equals(baseUrl)){
+        if (V1URL.equals(baseUrl)) {
             isVersion1 = true;
         }
     }
@@ -30,24 +31,24 @@ public class Credentials extends BaseManager
     /**
      * Create a credential<br/>
      * 创建一个凭据
-     * @see #create(Credential, Boolean)
+     *
      * @param credential
      * @throws IOException
+     * @see #create(Credential, Boolean)
      */
-    public void create(Credential credential) throws IOException
-    {
+    public void create(Credential credential) throws IOException {
         create(credential, isCrumb());
     }
 
     /**
      * Create credential then return with id<br/>
      * 创建并返回一个带有ID的凭据
+     *
      * @param credential
      * @return
      * @throws IOException
      */
-    public Credential createAndFetch(Credential credential) throws IOException
-    {
+    public Credential createAndFetch(Credential credential) throws IOException {
         String uuid = UUID.randomUUID().toString();
 
         credential.setId(null);
@@ -57,10 +58,8 @@ public class Credentials extends BaseManager
 
         Map<String, Credential> credentialsMap = list();
         Collection<Credential> credentials = credentialsMap.values();
-        for(Credential item : credentials)
-        {
-            if(uuid.equals(item.getDescription()))
-            {
+        for (Credential item : credentials) {
+            if (uuid.equals(item.getDescription())) {
                 return item;
             }
         }
@@ -70,18 +69,19 @@ public class Credentials extends BaseManager
 
     /**
      * 创建凭据
+     *
      * @param credential
      * @param crumbFlag
      * @throws IOException
      */
-    public void create(Credential credential, Boolean crumbFlag) throws IOException
-    {
+    public void create(Credential credential, Boolean crumbFlag) throws IOException {
         String url = String.format("%s/%s?", this.baseUrl, "createCredentials");
         getClient().postFormJson(url, credential.dataForCreate(), crumbFlag);
     }
 
     /**
      * 列出所有的凭据
+     *
      * @return
      * @throws IOException
      */
@@ -99,7 +99,7 @@ public class Credentials extends BaseManager
             CredentialResponse response = getClient().get(url, CredentialResponse.class);
             List<Credential> credentials = response.getCredentials();
             Map<String, Credential> credentialMap = new HashMap<>();
-            for(Credential credential : credentials) {
+            for (Credential credential : credentials) {
                 credentialMap.put(credential.getId(), credential);
             }
             return credentialMap;
@@ -108,25 +108,22 @@ public class Credentials extends BaseManager
 
     /**
      * Check target credential is exists by id.
+     *
      * @param credentialId
      * @return
      * @throws IOException
      */
-    public boolean exists(String credentialId) throws IOException
-    {
-        if(credentialId == null)
-        {
+    public boolean exists(String credentialId) throws IOException {
+        if (credentialId == null) {
             return false;
         }
 
         Map<String, Credential> credentialMap = list();
         Iterator<String> it = credentialMap.keySet().iterator();
-        while(it.hasNext())
-        {
+        while (it.hasNext()) {
             String key = it.next();
 
-            if(credentialId.equals(credentialMap.get(key).getId()))
-            {
+            if (credentialId.equals(credentialMap.get(key).getId())) {
                 return true;
             }
         }
@@ -136,25 +133,25 @@ public class Credentials extends BaseManager
 
     /**
      * 根据ID来更新一个凭据
-     * @see #update(String, Credential, Boolean)
+     *
      * @param credentialId
      * @param credential
      * @throws IOException
+     * @see #update(String, Credential, Boolean)
      */
-    public void update(String credentialId, Credential credential) throws IOException
-    {
+    public void update(String credentialId, Credential credential) throws IOException {
         update(credentialId, credential, isCrumb());
     }
 
     /**
      * Update an existing credential.
+     *
      * @param credentialId the id of the credential to update
-     * @param credential the credential to update
+     * @param credential   the credential to update
      * @param crumbFlag
      * @throws IOException
      */
-    public void update(String credentialId, Credential credential, Boolean crumbFlag) throws IOException
-    {
+    public void update(String credentialId, Credential credential, Boolean crumbFlag) throws IOException {
         credential.setId(credentialId);
         String url = String.format("%s/%s/%s/%s?", this.baseUrl, "credential", credentialId, "updateSubmit");
         getClient().postFormJson(url, credential.dataForUpdate(), crumbFlag);
@@ -162,23 +159,23 @@ public class Credentials extends BaseManager
 
     /**
      * 根据ID删除一个凭据
-     * @see #delete(String, Boolean)
+     *
      * @param credentialId
      * @throws IOException
+     * @see #delete(String, Boolean)
      */
-    public void delete(String credentialId) throws IOException
-    {
+    public void delete(String credentialId) throws IOException {
         delete(credentialId, isCrumb());
     }
 
     /**
      * Delete the credential with the given id
+     *
      * @param credentialId the id of the credential
      * @param crumbFlag
      * @throws IOException
      */
-    public void delete(String credentialId, Boolean crumbFlag) throws IOException
-    {
+    public void delete(String credentialId, Boolean crumbFlag) throws IOException {
         String url = String.format("%s/%s/%s/%s?", this.baseUrl, "credential", credentialId, "doDelete");
         getClient().postForm(url, new HashMap<String, String>(), crumbFlag);
     }
@@ -216,8 +213,7 @@ public class Credentials extends BaseManager
     }
 
     @Override
-    protected String[] getDependencyArray()
-    {
+    protected String[] getDependencyArray() {
         return new String[0];
     }
 }

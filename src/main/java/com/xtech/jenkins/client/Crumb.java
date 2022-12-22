@@ -2,8 +2,8 @@ package com.xtech.jenkins.client;
 
 /**
  * @author Adrien Lecharpentier
- *         <a href="mailto:adrien.lecharpentier@gmail.com">adrien.
- *         lecharpentier@gmail.com</a>
+ * <a href="mailto:adrien.lecharpentier@gmail.com">adrien.
+ * lecharpentier@gmail.com</a>
  */
 public class Crumb extends BaseModel {
 

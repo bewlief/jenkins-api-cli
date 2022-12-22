@@ -6,9 +6,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.net.URI;
-import java.time.DayOfWeek;
-
-import static org.mockito.Mockito.doThrow;
 
 class UrlUtilsTest {
 

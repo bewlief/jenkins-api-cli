@@ -2,11 +2,10 @@ package com.xtech.jenkins.client.core;
 
 /**
  * @author Karl Heinz Marbaise
- *
+ * <p>
  *         TODO: Has someone a better name for the class?
  */
-public class HourMinSec10
-{
+public class HourMinSec10 {
 
     private Statis hour;
     private Statis min;
