@@ -31,7 +31,8 @@
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <okhttp.version>5.0.0-alpha.10</okhttp.version>
         <!--        <spring-core.version>5.3.24</spring-core.version>-->
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
+        <mockito-junit-jupiter.version>4.6.1</mockito-junit-jupiter.version>
     </properties>
 
     <dependencies>
@@ -159,7 +160,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>4.6.1</version>
+            <version>${mockito-junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

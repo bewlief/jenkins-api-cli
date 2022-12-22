@@ -51,8 +51,8 @@ public class Demo {
 
 ```java
 import com.xtech.jenkins.client.Jenkins;
-import com.xtech.jenkins.client.plugin.Plugin;
-import com.xtech.jenkins.client.plugin.Plugins;
+import com.xtech.jenkins.client.model.plugin.Plugin;
+import com.xtech.jenkins.client.helper.Plugins;
 
 import java.io.IOException;
 import java.net.URI;
@@ -80,8 +80,8 @@ public class Demo {
 
 ```java
 import com.xtech.jenkins.client.Jenkins;
-import com.xtech.jenkins.client.credential.Credential;
-import com.xtech.jenkins.client.credential.Credentials;
+import com.xtech.jenkins.client.model.credential.Credential;
+import com.xtech.jenkins.client.helper.Credentials;
 
 import java.io.IOException;
 import java.net.URI;

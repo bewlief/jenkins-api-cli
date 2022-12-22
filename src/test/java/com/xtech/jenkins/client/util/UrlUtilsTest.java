@@ -1,6 +1,6 @@
 package com.xtech.jenkins.client.util;
 
-import com.xtech.jenkins.client.folder.FolderJob;
+import com.xtech.jenkins.client.model.folder.FolderJob;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
