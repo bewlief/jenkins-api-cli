@@ -6,7 +6,7 @@ import com.xtech.jenkins.client.model.job.Job;
 import java.util.List;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class View extends BaseModel {
     private String name;

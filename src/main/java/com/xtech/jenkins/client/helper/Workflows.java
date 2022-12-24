@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Pipeline module api.
  *
- * @author suren
+ * @author xtech
  */
 public class Workflows extends BaseManager {
 

@@ -1,10 +1,11 @@
 package com.xtech.jenkins.client.helper;
 
+import com.xtech.jenkins.client.model.core.JenkinsInfo;
+import com.xtech.jenkins.client.model.folder.FolderJob;
 import com.xtech.jenkins.client.model.job.BuildDetail;
 import com.xtech.jenkins.client.model.job.Job;
 import com.xtech.jenkins.client.model.job.JobDetails;
-import com.xtech.jenkins.client.model.core.JenkinsInfo;
-import com.xtech.jenkins.client.model.folder.FolderJob;
+import com.xtech.jenkins.client.util.Constants;
 import com.xtech.jenkins.client.util.EncodingUtils;
 import com.xtech.jenkins.client.util.UrlUtils;
 
@@ -17,7 +18,7 @@ import java.util.Map;
  * You can create, update, del a job through this manager.<br/>
  * 你可以对Jenkins的任务做创建、更新、删除的操作
  *
- * @author suren
+ * @author xtech
  */
 public class Jobs extends BaseManager {
     /**
@@ -225,7 +226,8 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public String getXml(FolderJob folderJob, String jobName) throws IOException {
-        return getClient().get(UrlUtils.toJobBaseUrl(folderJob, jobName) + "/securitydemo.config.xml");
+        String path = String.format(Constants.API_GET_JOB_XML, UrlUtils.toJobBaseUrl(folderJob, jobName));
+        return getClient().get(path);
     }
 
     /**
@@ -329,6 +331,11 @@ public class Jobs extends BaseManager {
      */
     public String getLogText(String jobName, int buildNum) throws IOException {
         return getClient().get("/job/" + EncodingUtils.encode(jobName) + "/" + buildNum + "/consoleText");
+        // xjm: /consoleText=/logText/progressiveText
+    }
+
+    public String getLogHtml(String jobName, int buildNum) throws IOException {
+        return getClient().get("/job" + EncodingUtils.encode(jobName) + "/" + buildNum + "/logText/progressiveHtml");
     }
 
     /**

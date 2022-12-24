@@ -5,13 +5,16 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.xtech.jenkins.client.model.BaseModel;
+import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author suren
+ * @author xtech
+ * = Build
  */
+@Data
 @JsonIgnoreProperties(value = {"other"})
 public class BuildInfo extends BaseModel {
     @JsonIgnore
@@ -19,6 +22,7 @@ public class BuildInfo extends BaseModel {
 
     private int number;
     private String url;
+    private int queueId;
 
     @JsonAnySetter
     public void set(String key, Object value) {
@@ -30,36 +34,8 @@ public class BuildInfo extends BaseModel {
         return other;
     }
 
-    public Map<String, Object> getOther() {
-        return other;
-    }
-
-    public void setOther(Map<String, Object> other) {
-        this.other = other;
-    }
-
-    @Override
-    public String toString() {
-        return "BuildInfo{" +
-                "other=" + other +
-                ", number=" + number +
-                ", url='" + url + '\'' +
-                '}';
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    // todo
+    public BuildDetail details(){
+        return null;
     }
 }

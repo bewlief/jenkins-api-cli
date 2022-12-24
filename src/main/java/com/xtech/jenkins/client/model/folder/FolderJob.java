@@ -5,7 +5,7 @@ import com.xtech.jenkins.client.model.job.Job;
 import java.util.List;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class FolderJob extends Job {
 

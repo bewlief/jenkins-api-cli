@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * 管理Jenkins的文件夹（folder）
  *
- * @author suren
+ * @author xtech
  */
 public class Folders extends BaseManager {
     private String folderCls = "com.cloudbees.hudson.plugins.folder.Folder";
@@ -50,7 +50,7 @@ public class Folders extends BaseManager {
     }
 
     public String getXml(String folderName) throws IOException {
-        return getClient().get("/job/" + EncodingUtils.encode(folderName) + "/securitydemo.config.xml");
+        return getClient().get("/job/" + EncodingUtils.encode(folderName) + "/config.xml");
     }
 
     public boolean exists(String folderName) throws IOException {

@@ -5,7 +5,7 @@ import com.xtech.jenkins.client.model.BaseModel;
 import java.util.List;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Action extends BaseModel {
     private List<Cause> causes;

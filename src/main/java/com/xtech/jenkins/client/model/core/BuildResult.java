@@ -1,7 +1,7 @@
 package com.xtech.jenkins.client.model.core;
 
 /**
- * @author suren
+ * @author xtech
  */
 public enum BuildResult {
     SUCCESS("SUCCESS"),

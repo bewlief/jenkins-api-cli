@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * 插件管理
  *
- * @author suren
+ * @author xtech
  */
 public class Plugins extends BaseManager {
     /**

@@ -9,7 +9,7 @@ import java.util.*;
 /**
  * Jenkins Credentials Managers
  *
- * @author suren
+ * @author xtech
  */
 public class Credentials extends BaseManager {
     public static final String V1URL = "/credential-store/domain/_";

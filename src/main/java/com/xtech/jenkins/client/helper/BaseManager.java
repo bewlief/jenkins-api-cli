@@ -5,7 +5,8 @@ import com.xtech.jenkins.client.JenkinsClient;
 import java.io.IOException;
 
 /**
- * @author suren
+ * @author xtech
+ * java-client-api是把具体的数据操作放到了BaseModel中
  */
 public abstract class BaseManager {
     private JenkinsClient client;
@@ -14,7 +15,8 @@ public abstract class BaseManager {
      */
     private boolean crumb = true;
 
-    protected JenkinsClient getClient() {
+    // todo change from protected to public, is it OK?
+    public JenkinsClient getClient() {
         return client;
     }
 

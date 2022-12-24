@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 操作Jenkins的基本方法接口
  *
- * @author suren
+ * @author xtech
  */
 public interface JenkinsClient {
     <T extends BaseModel> T get(String path, Class<T> cls) throws IOException;

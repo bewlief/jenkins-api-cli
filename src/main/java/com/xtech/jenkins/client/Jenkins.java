@@ -1,26 +1,17 @@
 package com.xtech.jenkins.client;
 
-import com.xtech.jenkins.client.helper.BlueOcean;
-import com.xtech.jenkins.client.helper.Computers;
-import com.xtech.jenkins.client.helper.Labels;
+import com.xtech.jenkins.client.helper.*;
 import com.xtech.jenkins.client.model.core.OverLoad;
-import com.xtech.jenkins.client.helper.Credentials;
-import com.xtech.jenkins.client.helper.Folders;
-import com.xtech.jenkins.client.helper.Jobs;
-import com.xtech.jenkins.client.helper.Plugins;
-import com.xtech.jenkins.client.helper.Queues;
-import com.xtech.jenkins.client.helper.Views;
-import com.xtech.jenkins.client.helper.Workflows;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URI;
 
 /**
  * Jenkins Client main entry
- *
- * @author suren
+ * 调用Jobs，Views等helper去获取item的数据
+ * @author xtech
  */
 public class Jenkins {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
@@ -33,6 +24,10 @@ public class Jenkins {
 
     public Jenkins(URI uri, String userName, String password) {
         this(new JenkinsHttpClient(uri, userName, password));
+    }
+
+    public Jenkins(String url, String userName, String password) {
+        this.client = new JenkinsHttpClient(url, userName, password);
     }
 
     public Jenkins(JenkinsHttpClient client) {
@@ -114,7 +109,16 @@ public class Jenkins {
     }
 
     public boolean isRunning() {
-        return false;
+        // original
+        //return false;
+
+        // from java-client-api, JenkinsServer.java
+        try {
+            client.get("/");
+            return Boolean.TRUE;
+        } catch (IOException e) {
+            return Boolean.FALSE;
+        }
     }
 
     public OverLoad getOverLoad() {

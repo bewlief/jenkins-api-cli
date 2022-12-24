@@ -30,7 +30,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Demo {
     public static void main(String[] args) throws URISyntaxException, IOException {
@@ -60,7 +60,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Demo {
     public static void main(String[] args) throws URISyntaxException, IOException {
@@ -89,7 +89,7 @@ import java.net.URISyntaxException;
 import java.util.Map;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Demo {
     public static void main(String[] args) throws URISyntaxException, IOException {

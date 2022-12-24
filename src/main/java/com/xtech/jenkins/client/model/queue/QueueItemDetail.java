@@ -5,7 +5,7 @@ import com.xtech.jenkins.client.model.core.Action;
 import java.util.List;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class QueueItemDetail extends QueueItem {
     private QueueTask task;

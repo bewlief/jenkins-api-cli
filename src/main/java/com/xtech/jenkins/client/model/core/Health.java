@@ -5,7 +5,7 @@ import com.xtech.jenkins.client.model.BaseModel;
 /**
  * 健康报告
  *
- * @author suren
+ * @author xtech
  */
 public class Health extends BaseModel {
     private String description;

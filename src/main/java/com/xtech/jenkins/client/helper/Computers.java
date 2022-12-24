@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * 计算节点管理
  *
- * @author suren
+ * @author xtech
  */
 public class Computers extends BaseManager {
     /**

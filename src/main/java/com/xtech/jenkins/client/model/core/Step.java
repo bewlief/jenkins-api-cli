@@ -3,7 +3,7 @@ package com.xtech.jenkins.client.model.core;
 import com.xtech.jenkins.client.model.BaseModel;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Step extends BaseModel {
     private String id;

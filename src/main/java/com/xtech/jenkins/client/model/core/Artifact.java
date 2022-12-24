@@ -5,7 +5,7 @@ import com.xtech.jenkins.client.model.BaseModel;
 /**
  * 成品信息
  *
- * @author suren
+ * @author xtech
  */
 public class Artifact extends BaseModel {
     private String displayPath;

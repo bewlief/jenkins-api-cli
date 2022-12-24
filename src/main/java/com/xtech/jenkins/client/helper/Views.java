@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * 视图管理
  *
- * @author suren
+ * @author xtech
  */
 public class Views extends BaseManager {
     /**

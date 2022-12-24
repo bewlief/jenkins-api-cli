@@ -6,7 +6,7 @@ import com.xtech.jenkins.client.model.queue.QueueItemDetail;
 import java.io.IOException;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Queues extends BaseManager {
     @Override

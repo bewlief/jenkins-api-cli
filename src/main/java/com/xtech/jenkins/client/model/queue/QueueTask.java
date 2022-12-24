@@ -3,7 +3,7 @@ package com.xtech.jenkins.client.model.queue;
 import com.xtech.jenkins.client.model.BaseModel;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class QueueTask extends BaseModel {
     private String name;

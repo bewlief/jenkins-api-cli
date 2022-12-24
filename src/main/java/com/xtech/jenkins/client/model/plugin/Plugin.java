@@ -3,7 +3,7 @@ package com.xtech.jenkins.client.model.plugin;
 import com.xtech.jenkins.client.model.BaseModel;
 
 /**
- * @author suren
+ * @author xtech
  */
 public class Plugin extends BaseModel {
     private boolean active;
