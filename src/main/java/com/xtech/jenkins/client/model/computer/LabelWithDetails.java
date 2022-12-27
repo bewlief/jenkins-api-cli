@@ -11,9 +11,7 @@ import com.xtech.jenkins.client.model.job.Job;
 import java.util.List;
 
 public class LabelWithDetails extends Job {
-
     String name;
-
     List actions;
     List clouds;
     String description;

@@ -2,14 +2,13 @@ package com.xtech.jenkins.client.helper;
 
 import com.xtech.jenkins.client.model.plugin.Plugin;
 import com.xtech.jenkins.client.model.plugin.PluginManager;
+import com.xtech.jenkins.client.util.Constants;
 
 import java.io.IOException;
 import java.util.List;
 
 /**
- * 插件管理
- *
- * @author xtech
+ * Plugin management
  */
 public class Plugins extends BaseManager {
     /**
@@ -19,7 +18,7 @@ public class Plugins extends BaseManager {
      * @throws IOException in case of a failure.
      */
     public PluginManager getPluginManager() throws IOException {
-        return getClient().get("pluginManager/?depth=2", PluginManager.class);
+        return getClient().get(Constants.API_GET_PLUGIN_MANAGER, PluginManager.class);
     }
 
     public boolean pluginsExists(String[] pluginArray) throws IOException {

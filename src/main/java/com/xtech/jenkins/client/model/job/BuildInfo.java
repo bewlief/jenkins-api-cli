@@ -11,8 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author xtech
- * = Build
+ * basic information of a build
  */
 @Data
 @JsonIgnoreProperties(value = {"other"})
@@ -34,7 +33,7 @@ public class BuildInfo extends BaseModel {
         return other;
     }
 
-    // todo
+    // todo get details
     public BuildDetail details(){
         return null;
     }

@@ -12,9 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 操作Jenkins的基本方法接口
- *
- * @author xtech
  */
 public interface JenkinsClient {
     <T extends BaseModel> T get(String path, Class<T> cls) throws IOException;
@@ -35,9 +32,9 @@ public interface JenkinsClient {
 
     HttpResponse postFormWithResult(String path, List<NameValuePair> data, boolean crumbFlag) throws IOException;
 
-    String postXml(String path, String xml_data) throws IOException;
+    String postXml(String path, String xmlData) throws IOException;
 
-    String postXml(String path, String xml_data, boolean crumbFlag) throws IOException;
+    String postXml(String path, String xmlData, boolean crumbFlag) throws IOException;
 
     String postText(String path, String textData, boolean crumbFlag) throws IOException;
 

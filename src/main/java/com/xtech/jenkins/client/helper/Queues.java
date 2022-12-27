@@ -2,11 +2,12 @@ package com.xtech.jenkins.client.helper;
 
 import com.xtech.jenkins.client.model.queue.Queue;
 import com.xtech.jenkins.client.model.queue.QueueItemDetail;
+import com.xtech.jenkins.client.util.Constants;
 
 import java.io.IOException;
 
 /**
- * @author xtech
+ * Queue management
  */
 public class Queues extends BaseManager {
     @Override
@@ -21,14 +22,14 @@ public class Queues extends BaseManager {
      * @throws IOException
      */
     public Queue getItems() throws IOException {
-        return getClient().get("/queue/api/json", Queue.class);
+        return getClient().get(Constants.API_GET_QUEUE_ITEMS, Queue.class);
     }
 
     public QueueItemDetail getItem(int id) throws IOException {
-        return getClient().get("/queue/item/" + id + "/api/json", QueueItemDetail.class);
+        return getClient().get(String.format(Constants.API_GET_QUEUE_ITEM, id), QueueItemDetail.class);
     }
 
     public void cancelItem(int id) throws IOException {
-        getClient().post("/queue/cancelItem?id=" + id, this.isCrumb());
+        getClient().post(String.format(Constants.API_CANCEL_QUEUE_ITEM, id), this.isCrumb());
     }
 }

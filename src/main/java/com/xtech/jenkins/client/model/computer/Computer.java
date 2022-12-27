@@ -68,24 +68,28 @@ public class Computer extends BaseModel {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Computer other = (Computer) obj;
         if (computer == null) {
-            if (other.computer != null)
+            if (other.computer != null) {
                 return false;
-        } else if (!computer.equals(other.computer))
+            }
+        } else if (!computer.equals(other.computer)) {
             return false;
+        }
         if (displayName == null) {
-            if (other.displayName != null)
-                return false;
-        } else if (!displayName.equals(other.displayName))
-            return false;
-        return true;
+            return other.displayName == null;
+        } else {
+            return displayName.equals(other.displayName);
+        }
     }
 
     @Override

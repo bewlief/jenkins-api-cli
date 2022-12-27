@@ -17,8 +17,6 @@ import java.util.Map;
 /**
  * You can create, update, del a job through this manager.<br/>
  * 你可以对Jenkins的任务做创建、更新、删除的操作
- *
- * @author xtech
  */
 public class Jobs extends BaseManager {
     /**
@@ -31,8 +29,8 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void create(FolderJob folder, String jobName, String jobXml, Boolean crumFlag) throws IOException {
-        String path = UrlUtils.toBaseUrl(folder) + "createItem?name=" + EncodingUtils.encodeParam(jobName);
-
+        //String path = UrlUtils.toBaseUrl(folder) + "createItem?name=" + EncodingUtils.encodeParam(jobName);
+        String path = String.format(Constants.API_CREATE_JOB, UrlUtils.toBaseUrl(folder), EncodingUtils.encodeParam(jobName));
         getClient().postXml(path, jobXml, crumFlag);
     }
 
@@ -51,7 +49,7 @@ public class Jobs extends BaseManager {
     }
 
     public void create(FolderJob folderJob, String jobName, String jobXml) throws IOException {
-        String path = UrlUtils.toBaseUrl(folderJob) + "createItem?name=" + EncodingUtils.encodeParam(jobName);
+        String path = String.format(Constants.API_CREATE_JOB, UrlUtils.toBaseUrl(folderJob), EncodingUtils.encodeParam(jobName));
 
         getClient().postXml(path, jobXml);
     }
@@ -85,7 +83,7 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void copy(String originName, String newName) throws IOException {
-        getClient().post(String.format("/createItem?mode=copy&from=%s&name=%s",
+        getClient().post(String.format(Constants.API_COPY_JOB,
                 EncodingUtils.encodeParam(originName),
                 EncodingUtils.encodeParam(newName)));
     }
@@ -100,7 +98,8 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void update(FolderJob folderJob, String jobName, String jobXml, Boolean crumbFlag) throws IOException {
-        String path = UrlUtils.toJobBaseUrl(folderJob, jobName) + "/getXml.xml";
+        //String path = UrlUtils.toJobBaseUrl(folderJob, jobName) + "/getXml.xml";
+        String path = String.format(Constants.API_UPDATE_FOLDER, UrlUtils.toJobBaseUrl(folderJob, jobName));
         getClient().postXml(path, jobXml, crumbFlag);
     }
 
@@ -133,7 +132,8 @@ public class Jobs extends BaseManager {
      * @param crumbFlag
      */
     public void delete(FolderJob folderJob, String jobName, Boolean crumbFlag) throws IOException {
-        String path = UrlUtils.toJobBaseUrl(folderJob, jobName) + "/doDelete";
+        //String path = UrlUtils.toJobBaseUrl(folderJob, jobName) + "/doDelete";
+        String path = String.format(Constants.API_DELETE_FOLDER_JOB, UrlUtils.toJobBaseUrl(folderJob, jobName));
         getClient().post(path, crumbFlag);
     }
 
@@ -191,8 +191,8 @@ public class Jobs extends BaseManager {
      */
     public void rename(FolderJob folderJob, String oldName, String newName, Boolean crumbFlag)
             throws IOException {
-        String path = UrlUtils.toJobBaseUrl(folderJob, oldName)
-                + "/doRename?newName=" + EncodingUtils.encodeParam(newName);
+        //String path = UrlUtils.toJobBaseUrl(folderJob, oldName) + "/doRename?newName=" + EncodingUtils.encodeParam(newName);
+        String path = String.format(Constants.API_RENAME_FOLDER_JOB, UrlUtils.toJobBaseUrl(folderJob, oldName), EncodingUtils.encodeParam(newName));
         getClient().post(path, crumbFlag);
     }
 
@@ -249,7 +249,7 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void disable(String jobName, Boolean crumbFlag) throws IOException {
-        getClient().post("/job/" + EncodingUtils.encode(jobName) + "/disable", isCrumb());
+        getClient().post(String.format(Constants.API_DISABLE_JOB, EncodingUtils.encode(jobName)), isCrumb());
     }
 
     /**
@@ -269,7 +269,7 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void enable(String jobName, Boolean crumbFlag) throws IOException {
-        getClient().post("/job/" + EncodingUtils.encode(jobName) + "/enable", isCrumb());
+        getClient().post(String.format(Constants.API_ENABLE_JOB, EncodingUtils.encode(jobName)), isCrumb());
     }
 
     /**
@@ -288,13 +288,18 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void build(String jobName) throws IOException {
-        getClient().post("/job/" + EncodingUtils.encode(jobName) + "/build", isCrumb());
+        getClient().post(String.format(Constants.API_BUILD_JOB, EncodingUtils.encode(jobName)), isCrumb());
     }
 
     public void build(String folder, String jobName, String branch) throws IOException {
-        getClient().post("/job/" + EncodingUtils.encode(folder)
-                + "/job/" + EncodingUtils.encode(jobName)
-                + "/job/" + EncodingUtils.encode(branch) + "/build", isCrumb());
+        //getClient().post("/job/" + EncodingUtils.encode(folder)
+        //        + "/job/" + EncodingUtils.encode(jobName)
+        //        + "/job/" + EncodingUtils.encode(branch) + "/build", isCrumb());
+
+        getClient().post(String.format(Constants.API_BUILD_FOLDER_JOB,
+                EncodingUtils.encode(folder),
+                EncodingUtils.encode(jobName),
+                EncodingUtils.encode(branch)), isCrumb());
     }
 
     /**
@@ -306,10 +311,8 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void buildWithParams(String jobName, Map<String, String> params) throws IOException {
-        StringBuffer urlBuf = new StringBuffer();
-        urlBuf.append("/job/");
-        urlBuf.append(EncodingUtils.encode(jobName));
-        urlBuf.append("/buildWithParameters/?1=1");
+        String path = String.format(Constants.API_BUILD_WITH_PARAMS, EncodingUtils.encode(jobName));
+        StringBuilder urlBuf = new StringBuilder(path);
 
         Iterator<String> it = params.keySet().iterator();
         while (it.hasNext()) {
@@ -330,12 +333,13 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public String getLogText(String jobName, int buildNum) throws IOException {
-        return getClient().get("/job/" + EncodingUtils.encode(jobName) + "/" + buildNum + "/consoleText");
+        return getClient().get(String.format(Constants.API_GET_LOG_TEXT, EncodingUtils.encode(jobName), buildNum));
         // xjm: /consoleText=/logText/progressiveText
     }
 
     public String getLogHtml(String jobName, int buildNum) throws IOException {
-        return getClient().get("/job" + EncodingUtils.encode(jobName) + "/" + buildNum + "/logText/progressiveHtml");
+        String path = String.format(Constants.API_GET_LOG_HTML, EncodingUtils.encode(jobName), buildNum);
+        return getClient().get(path);
     }
 
     /**
@@ -346,7 +350,8 @@ public class Jobs extends BaseManager {
      * @throws IOException
      */
     public void stop(String jobName, int buildId) throws IOException {
-        getClient().post("/job/" + EncodingUtils.encode(jobName) + "/" + buildId + "/stop", isCrumb());
+        String path = String.format(Constants.API_STOP_JOB, EncodingUtils.encode(jobName), buildId);
+        getClient().post(path, isCrumb());
     }
 
     public JenkinsInfo getAll() throws IOException {
@@ -365,19 +370,21 @@ public class Jobs extends BaseManager {
     }
 
     public JobDetails getDetails(String jobName) throws IOException {
-        return getClient().get("/job/" + EncodingUtils.encode(jobName), JobDetails.class);
+        String path = String.format(Constants.API_GET_JOB_DETAILS, EncodingUtils.encode(jobName));
+        return getClient().get(path, JobDetails.class);
     }
 
     /**
      * 获取某一次构建的详细信息
      *
-     * @param jobName 任务名称
-     * @param number  构建号
+     * @param jobName     任务名称
+     * @param buildNumber 构建号
      * @return 构建详细信息
      * @throws IOException
      */
-    public BuildDetail getBuildDetails(String jobName, int number) throws IOException {
-        return getClient().get("/job/" + EncodingUtils.encode(jobName) + "/" + number, BuildDetail.class);
+    public BuildDetail getBuildDetails(String jobName, int buildNumber) throws IOException {
+        String path = String.format(Constants.API_GET_BUILD_DETAILS, EncodingUtils.encode(jobName), buildNumber);
+        return getClient().get(path, BuildDetail.class);
     }
 
     /**

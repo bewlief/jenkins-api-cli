@@ -2,14 +2,13 @@ package com.xtech.jenkins.client.helper;
 
 import com.xtech.jenkins.client.model.BaseModel;
 import com.xtech.jenkins.client.model.credential.Credential;
+import com.xtech.jenkins.client.util.Constants;
 
 import java.io.IOException;
 import java.util.*;
 
 /**
  * Jenkins Credentials Managers
- *
- * @author xtech
  */
 public class Credentials extends BaseManager {
     public static final String V1URL = "/credential-store/domain/_";
@@ -75,7 +74,7 @@ public class Credentials extends BaseManager {
      * @throws IOException
      */
     public void create(Credential credential, Boolean crumbFlag) throws IOException {
-        String url = String.format("%s/%s?", this.baseUrl, "createCredentials");
+        String url = String.format(Constants.API_CREATE_CREDENTIAL, this.baseUrl);
         getClient().postFormJson(url, credential.dataForCreate(), crumbFlag);
     }
 
@@ -86,7 +85,7 @@ public class Credentials extends BaseManager {
      * @throws IOException
      */
     public Map<String, Credential> list() throws IOException {
-        String url = String.format("%s?depth=2", this.baseUrl);
+        String url = String.format(Constants.API_LIST_CREDENTIALS, this.baseUrl);
         if (this.isVersion1) {
             CredentialResponseV1 response = getClient().get(url, CredentialResponseV1.class);
             Map<String, Credential> credentials = response.getCredentials();
@@ -153,7 +152,8 @@ public class Credentials extends BaseManager {
      */
     public void update(String credentialId, Credential credential, Boolean crumbFlag) throws IOException {
         credential.setId(credentialId);
-        String url = String.format("%s/%s/%s/%s?", this.baseUrl, "credential", credentialId, "updateSubmit");
+        //String url = String.format("%s/%s/%s/%s?", this.baseUrl, "credential", credentialId, "updateSubmit");
+        String url = String.format(Constants.API_UPDATE_CREDENTIAL, this.baseUrl, credentialId);
         getClient().postFormJson(url, credential.dataForUpdate(), crumbFlag);
     }
 
@@ -176,8 +176,8 @@ public class Credentials extends BaseManager {
      * @throws IOException
      */
     public void delete(String credentialId, Boolean crumbFlag) throws IOException {
-        String url = String.format("%s/%s/%s/%s?", this.baseUrl, "credential", credentialId, "doDelete");
-        getClient().postForm(url, new HashMap<String, String>(), crumbFlag);
+        String url = String.format(Constants.API_DELETE_CREDENTIAL, this.baseUrl, credentialId);
+        getClient().postForm(url, new HashMap<>(), crumbFlag);
     }
 
     /**

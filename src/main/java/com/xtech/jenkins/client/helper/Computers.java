@@ -1,9 +1,9 @@
 package com.xtech.jenkins.client.helper;
 
-import com.google.common.base.Function;
 import com.google.common.collect.Maps;
 import com.xtech.jenkins.client.model.computer.Computer;
 import com.xtech.jenkins.client.model.computer.ComputerSet;
+import com.xtech.jenkins.client.util.Constants;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,13 +23,10 @@ public class Computers extends BaseManager {
      * @throws IOException in case of an error.
      */
     public Map<String, Computer> getComputers() throws IOException {
-        List<Computer> computers = getClient().get("computer/", Computer.class).getComputers();
-        return Maps.uniqueIndex(computers, new Function<Computer, String>() {
-            @Override
-            public String apply(Computer computer) {
-                computer.setClient(getClient());
-                return computer.getDisplayName().toLowerCase();
-            }
+        List<Computer> computers = getClient().get(Constants.API_GET_COMPUTERS, Computer.class).getComputers();
+        return Maps.uniqueIndex(computers, computer -> {
+            computer.setClient(getClient());
+            return computer.getDisplayName().toLowerCase();
         });
     }
 
@@ -42,7 +39,7 @@ public class Computers extends BaseManager {
      * @throws IOException in case of an error.
      */
     public ComputerSet getComputerSet() throws IOException {
-        ComputerSet computerSet = getClient().get("computer/?depth=2", ComputerSet.class);
+        ComputerSet computerSet = getClient().get(Constants.API_GET_COMPUTER_SET, ComputerSet.class);
         computerSet.setClient(getClient());
         return computerSet;
     }

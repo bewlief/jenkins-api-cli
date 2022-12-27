@@ -17,8 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 一次构建的详细信息
- * = BuildWithDetails
+ * detailed information of one build
  */
 @JsonIgnoreProperties(value = {"other"})
 @Data

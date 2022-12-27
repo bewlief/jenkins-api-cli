@@ -5,8 +5,8 @@ import com.xtech.jenkins.client.JenkinsClient;
 import java.io.IOException;
 
 /**
- * @author xtech
- * java-client-api是把具体的数据操作放到了BaseModel中
+ * BaseManager, super class of all helpers
+ *
  */
 public abstract class BaseManager {
     private JenkinsClient client;

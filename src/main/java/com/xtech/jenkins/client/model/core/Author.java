@@ -4,8 +4,7 @@ import com.xtech.jenkins.client.model.BaseModel;
 import lombok.Data;
 
 /**
- * @author xtech
- * = BuildChangeSetAuthor
+ *
  */
 @Data
 public class Author extends BaseModel {

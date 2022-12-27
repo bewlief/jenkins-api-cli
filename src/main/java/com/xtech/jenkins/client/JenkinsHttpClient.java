@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.google.common.io.ByteStreams;
 import com.xtech.jenkins.client.model.BaseModel;
-import com.xtech.jenkins.client.model.ExtractHeader;
+import com.xtech.jenkins.client.model.other.ExtractHeader;
 import com.xtech.jenkins.client.model.crumb.Crumb;
 import com.xtech.jenkins.client.util.EncodingUtils;
 import com.xtech.jenkins.client.util.RequestReleasingInputStream;
@@ -54,7 +54,9 @@ import java.util.Map;
 
 import static com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES;
 
-
+/**
+ * using apache http client to call remote rest api
+ */
 public class JenkinsHttpClient implements JenkinsClient, Closeable {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
@@ -419,22 +421,22 @@ public class JenkinsHttpClient implements JenkinsClient, Closeable {
      * string rendering of the response entity.
      *
      * @param path     path to request, can be relative or absolute
-     * @param xml_data data data to post
+     * @param xmlData data data to post
      * @return A string containing the xml response (if present)
      * @throws IOException in case of an error.
      */
     @Override
-    public String postXml(String path, String xml_data) throws IOException {
-        return postXml(path, xml_data, true);
+    public String postXml(String path, String xmlData) throws IOException {
+        return postXml(path, xmlData, true);
     }
 
     @Override
-    public String postXml(String path, String xml_data, boolean crumbFlag) throws IOException {
+    public String postXml(String path, String xmlData, boolean crumbFlag) throws IOException {
         HttpPost request = new HttpPost(UrlUtils.toJsonApiUri(uri, context, path));
         handleCrumbFlag(crumbFlag, request);
 
-        if (xml_data != null) {
-            request.setEntity(new StringEntity(xml_data, ContentType.create("text/xml", "utf-8")));
+        if (xmlData != null) {
+            request.setEntity(new StringEntity(xmlData, ContentType.create("text/xml", "utf-8")));
         }
         HttpResponse response = client.execute(request, localContext);
         jenkinsVersion = ResponseUtils.getJenkinsVersion(response);

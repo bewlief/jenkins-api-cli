@@ -9,7 +9,7 @@ package com.xtech.jenkins.client.model.job;
 import com.xtech.jenkins.client.model.BaseModel;
 
 /**
- * @author xtech
+ * basic info of a job
  */
 public class Job extends BaseModel {
 

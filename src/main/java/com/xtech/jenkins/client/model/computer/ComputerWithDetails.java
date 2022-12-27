@@ -17,7 +17,6 @@ import java.util.Map;
 /**
  * 执行节点详细信息
  *
- * @author xtech
  */
 public class ComputerWithDetails extends Computer {
 

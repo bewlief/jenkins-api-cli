@@ -2,15 +2,14 @@ package com.xtech.jenkins.client.helper;
 
 import com.xtech.jenkins.client.model.folder.FolderJob;
 import com.xtech.jenkins.client.model.view.View;
+import com.xtech.jenkins.client.util.Constants;
 import com.xtech.jenkins.client.util.EncodingUtils;
 import com.xtech.jenkins.client.util.UrlUtils;
 
 import java.io.IOException;
 
 /**
- * 视图管理
- *
- * @author xtech
+ * view management
  */
 public class Views extends BaseManager {
     /**
@@ -21,7 +20,8 @@ public class Views extends BaseManager {
      * @throws IOException
      */
     public void create(FolderJob folderJob, String viewName, String viewXml, Boolean crumbFlag) throws IOException {
-        String path = UrlUtils.toBaseUrl(folderJob) + "createView?name=" + EncodingUtils.encodeParam(viewName);
+        //String path = UrlUtils.toBaseUrl(folderJob) + "createView?name=" + EncodingUtils.encodeParam(viewName);
+        String path = String.format(Constants.API_CREATE_VIEW, UrlUtils.toBaseUrl(folderJob), EncodingUtils.encodeParam(viewName));
 
         getClient().postXml(path, viewXml, crumbFlag);
     }
@@ -57,7 +57,8 @@ public class Views extends BaseManager {
      * @throws IOException
      */
     public void update(FolderJob folder, String viewName, String viewXml, boolean crumbFlag) throws IOException {
-        String path = UrlUtils.toBaseUrl(folder) + "view/" + EncodingUtils.encode(viewName) + "/getXml.xml";
+        //String path = UrlUtils.toBaseUrl(folder) + "view/" + EncodingUtils.encode(viewName) + "/getXml.xml";
+        String path = String.format(Constants.API_UPDATE_VIEW, UrlUtils.toBaseUrl(folder), EncodingUtils.encode(viewName));
         getClient().postXml(path, viewXml, crumbFlag);
     }
 
@@ -90,11 +91,13 @@ public class Views extends BaseManager {
      * @throws IOException
      */
     public View info(String viewName) throws IOException {
-        return getClient().get("/view/" + EncodingUtils.encode(viewName), View.class);
+        String url = String.format(Constants.API_GET_VIEW_INFO, EncodingUtils.encode(viewName));
+        return getClient().get(url, View.class);
     }
 
     public String getXml(String viewName) throws IOException {
-        return getClient().get("/view/" + EncodingUtils.encode(viewName) + "/getXml.xml");
+        String url = String.format(Constants.API_GET_VIEW_XML, EncodingUtils.encode(viewName));
+        return getClient().get(url);
     }
 
     @Override

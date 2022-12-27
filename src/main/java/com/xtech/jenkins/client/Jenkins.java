@@ -10,8 +10,6 @@ import java.net.URI;
 
 /**
  * Jenkins Client main entry
- * 调用Jobs，Views等helper去获取item的数据
- * @author xtech
  */
 public class Jenkins {
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());

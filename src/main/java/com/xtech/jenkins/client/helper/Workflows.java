@@ -2,11 +2,12 @@ package com.xtech.jenkins.client.helper;
 
 import com.xtech.jenkins.client.JenkinsClient;
 import com.xtech.jenkins.client.model.job.BuildDetail;
-import com.xtech.jenkins.client.util.EncodingUtils;
 import com.xtech.jenkins.client.model.workflow.Stage;
 import com.xtech.jenkins.client.model.workflow.StageFlowNodes;
 import com.xtech.jenkins.client.model.workflow.StageFlowNodesLog;
-import com.xtech.jenkins.client.model.workflow.WfWithDetails;
+import com.xtech.jenkins.client.model.workflow.WorkflowWithDetails;
+import com.xtech.jenkins.client.util.Constants;
+import com.xtech.jenkins.client.util.EncodingUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpResponseException;
@@ -17,8 +18,6 @@ import java.util.Map;
 
 /**
  * Pipeline module api.
- *
- * @author xtech
  */
 public class Workflows extends BaseManager {
 
@@ -28,16 +27,17 @@ public class Workflows extends BaseManager {
      * @param jobName
      * @param buildNo
      */
-    public WfWithDetails getWfDescribe(String jobName, int buildNo) throws IOException {
+    public WorkflowWithDetails getWfDescribe(String jobName, int buildNo) throws IOException {
         String path = "/";
         try {
             JenkinsClient client = getClient();
 
-            WfWithDetails wfWithDetails = getClient().get(path + "job/" + EncodingUtils.encode(jobName) + "/" + buildNo + "/wfapi/describe", WfWithDetails.class);
-            wfWithDetails.setClient(client);
-            setBuildingInfo(wfWithDetails, jobName);
+            //WorkflowWithDetails workflowWithDetails = getClient().get(path + "job/" + EncodingUtils.encode(jobName) + "/" + buildNo + "/wfapi/describe", WorkflowWithDetails.class);
+            WorkflowWithDetails workflowWithDetails = getClient().get(path + String.format(Constants.API_GET_WF_DESCRIBE,EncodingUtils.encode(jobName),buildNo), WorkflowWithDetails.class);
+            workflowWithDetails.setClient(client);
+            setBuildingInfo(workflowWithDetails, jobName);
 
-            return wfWithDetails;
+            return workflowWithDetails;
         } catch (HttpResponseException e) {
 //            LOGGER.debug("getWfDescribe(jobName={}) status={}", jobName, e.getStatusCode());
             if (e.getStatusCode() == HttpStatus.SC_NOT_FOUND) {
@@ -52,12 +52,17 @@ public class Workflows extends BaseManager {
         try {
             JenkinsClient client = getClient();
 
-            Stage stage = client.get(path + "job/" + EncodingUtils.encode(jobName) + "/" + buildNo + "/execution/node/" + stageId + "/wfapi/describe", Stage.class);
+            String encodedJobName = EncodingUtils.encode(jobName);
+            String urlStage = String.format(Constants.API_GET_WF_NODE_DESCRIBE, encodedJobName, buildNo
+                    , stageId);
+            //Stage stage = client.get(path + "job/" + EncodingUtils.encode(jobName) + "/" + buildNo + "/execution/node/" + stageId + "/wfapi/describe", Stage.class);
+            Stage stage = client.get(path + urlStage, Stage.class);
             if (null != stage && CollectionUtils.isNotEmpty(stage.getStageFlowNodes())) {
                 stage.setClient(client);
                 for (StageFlowNodes stageFlowNode : stage.getStageFlowNodes()) {
                     int nodeId = stageFlowNode.getId();
-                    StageFlowNodesLog log = client.get(path + "job/" + EncodingUtils.encode(jobName) + "/" + buildNo + "/execution/node/" + nodeId + "/wfapi/log", StageFlowNodesLog.class);
+                    String urlNodeLog = String.format(Constants.API_GET_WF_NODE_LOG, encodedJobName, buildNo, nodeId);
+                    StageFlowNodesLog log = client.get(path + urlNodeLog, StageFlowNodesLog.class);
                     log.setClient(client);
                     stageFlowNode.setLog(log);
                 }
@@ -80,16 +85,18 @@ public class Workflows extends BaseManager {
      * @return
      * @throws IOException
      */
-    public WfWithDetails last(String jobName) throws IOException {
-        String url = "/job/" + EncodingUtils.encode(jobName) + "/lastBuild/wfapi/describe";
-        WfWithDetails details = getClient().get(url, WfWithDetails.class);
+    public WorkflowWithDetails last(String jobName) throws IOException {
+        //String url = "/job/" + EncodingUtils.encode(jobName) + "/lastBuild/wfapi/describe";
+        String url = String.format(Constants.API_GET_WF_LAST_BUILD, EncodingUtils.encode(jobName));
+        WorkflowWithDetails details = getClient().get(url, WorkflowWithDetails.class);
         setBuildingInfo(details, jobName);
 
         return details;
     }
 
     public void restart(String jobName, int buildNum, String stage) throws IOException {
-        String url = "/job/" + EncodingUtils.encode(jobName) + "/" + buildNum + "/restart/restart/";
+        //String url = "/job/" + EncodingUtils.encode(jobName) + "/" + buildNum + "/restart/restart/";
+        String url = String.format(Constants.API_WF_RESTART, EncodingUtils.encode(jobName), buildNum);
 
         Map<String, Object> data = new HashMap<>();
         data.put("stageName", stage);
@@ -101,7 +108,7 @@ public class Workflows extends BaseManager {
         getClient().postFormJson(url, data, this.isCrumb());
     }
 
-    private void setBuildingInfo(WfWithDetails details, String jobName) throws IOException {
+    private void setBuildingInfo(WorkflowWithDetails details, String jobName) throws IOException {
         String buildId = details.getId();
         Jobs jobs = new Jobs();
         jobs.setClient(getClient());

@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author xtech
+ * detailed info of a job
  */
 @Data
 public class JobDetails extends Job {

@@ -1,6 +1,7 @@
 package com.xtech.jenkins.client.helper;
 
 import com.xtech.jenkins.client.model.core.Step;
+import com.xtech.jenkins.client.util.Constants;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,14 +17,8 @@ public class BlueOcean extends BaseManager {
     }
 
     public List<Step> steps(String folder, String jobName, String buildId) throws IOException {
-        StringBuffer buf = new StringBuffer(baseUrl);
-
-        buf.append("/").append(folder);
-        buf.append("/").append("pipelines/").append(jobName);
-        buf.append("/").append("runs");
-        buf.append("/").append(buildId).append("/steps");
-
-        return getClient().getList(buf.toString(), Step.class);
+        String path=String.format(Constants.API_GET_BLUE_STEPS, folder, jobName, buildId);
+        return getClient().getList(path, Step.class);
     }
 
     @Override
